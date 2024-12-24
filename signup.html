@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Vcare</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <input type="text" id="newUsername" placeholder="Username" required>
+            <input type="password" id="newPassword" placeholder="Password" required>
+            <select id="role">
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+            </select>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('newUsername').value;
+            const password = document.getElementById('newPassword').value;
+            const role = document.getElementById('role').value;
+
+            // Retrieve existing users from local storage or initialize if not present
+            const existingUsers = JSON.parse(localStorage.getItem('users')) || { patients: [], doctors: [], admins: [] };
+
+            // Add new user to the appropriate role
+            existingUsers[role + 's'].push({ username, password, role });
+
+            // Save updated users back to local storage
+            localStorage.setItem('users', JSON.stringify(existingUsers));
+
+            alert('Signup successful! Please login.');
+            navigateTo('login.html');
+        });
+    </script>
+</body>
+</html> 

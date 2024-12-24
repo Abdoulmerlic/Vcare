@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Support</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="my-appointments.html">My Appointments</a>
+        <a href="prescriptions.html">Prescriptions</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+
+    <!-- Chat Support Content -->
+    <section id="chat-support">
+        <h2>Chat with a Doctor</h2>
+        <div id="chat-window">
+            <!-- Chat messages will be dynamically inserted here -->
+        </div>
+        <input type="text" id="chat-input" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+        <input type="file" id="file-input">
+        <button onclick="sendFile()">Send File</button>
+    </section>
+
+    <script src="../js/chat.js"></script>
+</body>
+</html> 

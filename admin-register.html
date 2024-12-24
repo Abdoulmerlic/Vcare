@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Register</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Admin Register</h2>
+        <form id="adminRegisterForm">
+            <input type="text" id="newAdminUsername" placeholder="Username" required>
+            <input type="password" id="newAdminPassword" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="admin-login.html">Login</a></p>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('adminRegisterForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('newAdminUsername').value;
+            const password = document.getElementById('newAdminPassword').value;
+
+            // Retrieve existing users from local storage or initialize if not present
+            const existingUsers = JSON.parse(localStorage.getItem('users')) || { patients: [], doctors: [], admins: [] };
+
+            // Add new admin to the admins list
+            existingUsers.admins.push({ username, password, role: 'admin' });
+
+            // Save updated users back to local storage
+            localStorage.setItem('users', JSON.stringify(existingUsers));
+
+            alert('Registration successful! Please login.');
+            navigateTo('admin-login.html');
+        });
+    </script>
+</body>
+</html> 

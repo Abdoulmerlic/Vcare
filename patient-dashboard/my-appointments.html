@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Appointments</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="prescriptions.html">Prescriptions</a>
+        <a href="chat-support.html">Chat Support</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+
+    <!-- Appointments Content -->
+    <section id="appointments">
+        <h2>My Appointments</h2>
+        <div id="appointments-list">
+            <!-- Appointment cards will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Load appointments for the current user
+        document.addEventListener('DOMContentLoaded', loadPatientDashboard);
+    </script>
+</body>
+</html> 

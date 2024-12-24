@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earnings</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="patient-records.html">Patient Records</a>
+        <a href="settings.html">Settings</a>
+        <a href="chat-patient.html">Chat Patient</a>
+    </nav>
+
+    <!-- Earnings Content -->
+    <section id="earnings">
+        <h2>Earnings Overview</h2>
+        <div id="earnings-list">
+            <!-- Earnings details will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Load earnings for the current doctor
+        document.addEventListener('DOMContentLoaded', loadDoctorDashboard);
+    </script>
+</body>
+</html> 

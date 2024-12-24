@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="users.html">Users</a>
+        <a href="doctors.html">Doctors</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+
+    <!-- Reports Content -->
+    <section id="reports">
+        <h2>Reports</h2>
+        <div id="reports-list">
+            <!-- Reports will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Load reports for the admin
+        document.addEventListener('DOMContentLoaded', loadAdminDashboard);
+    </script>
+</body>
+</html> 
