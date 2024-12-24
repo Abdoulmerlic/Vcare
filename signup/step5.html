@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 5: Account Setup</title>
+    <link rel="stylesheet" href="css/step5.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h1>VCare</h1>
+        <h2>Patient Registration</h2>
+        <p>Complete your profile to enjoy Healthcare services</p>
+        <div class="progress-bar">
+            <div class="step">1</div>
+            <div class="step">2</div>
+            <div class="step">3</div>
+            <div class="step">4</div>
+            <div class="step active">5</div>
+        </div>
+        <div class="progress-labels">
+            <span>Personal Information</span>
+            <span>Health Information</span>
+            <span>Medical History</span>
+            <span>Consent and Verification</span>
+            <span>Account Setup</span>
+        </div>
+        <form id="step5Form">
+            <h3>Account Setup</h3>
+            <div class="form-group">
+                <input type="email" placeholder="Email Address" name="email" required>
+                <input type="password" placeholder="Password" name="password" required>
+            </div>
+            <div class="button-group">
+                <button type="button" class="next-btn" onclick="prevStep('./step4.html')">← Previous</button>
+                <button type="submit" class="next-btn">Register</button>
+            </div>
+        </form>
+    </div>
+    <script src="js/form.js"></script>
+</body>
+</html> 

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 3: Medical History</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/step3.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h1>VCare</h1>
+        <h2>Patient Registration</h2>
+        <p>Complete your profile to enjoy Healthcare services</p>
+        <div class="progress-bar">
+            <div class="step">1</div>
+            <div class="step">2</div>
+            <div class="step active">3</div>
+            <div class="step">4</div>
+        </div>
+        <div class="progress-labels">
+            <span>Personal Information</span>
+            <span>Health Information</span>
+            <span>Medical History</span>
+            <span>Consent and Verification</span>
+        </div>
+        <form id="step3Form">
+            <h3>Medical History</h3>
+            <div class="form-group">
+                <input type="text" placeholder="Chronic Illness" name="chronicIllness">
+                <select name="surgeries" required>
+                    <option value="" disabled selected>Surgeries or Hospitalization</option>
+                    <option value="None">None</option>
+                    <option value="Minor">Minor</option>
+                    <option value="Major">Major</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Family Medical History" name="familyHistory">
+                <input type="file" name="medicalReport" required>
+            </div>
+            <div class="button-group">
+                <button type="button" class="next-btn" onclick="prevStep('./step2.html')">← Previous</button>
+                <button type="button" class="next-btn" onclick="nextStep('./step4.html', 'step3')">Next ➔</button>
+            </div>
+        </form>
+    </div>
+    <script src="js/form.js"></script>
+</body>
+</html> 
