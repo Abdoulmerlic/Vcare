@@ -11,7 +11,7 @@ document.getElementById('adminLoginForm').addEventListener('submit', function(ev
 
     if (admin) {
         alert('Login successful!');
-        window.location.href = '../admin-dashboard.html'; // Redirect to admin dashboard
+        window.location.href = 'admin-dashboard/index.html';
     } else {
         alert('Invalid username or password.');
     }

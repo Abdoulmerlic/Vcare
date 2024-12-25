@@ -13,5 +13,5 @@ document.getElementById('adminRegisterForm').addEventListener('submit', function
     localStorage.setItem('users', JSON.stringify(existingUsers));
 
     alert('Registration successful! Please login.');
-    window.location.href = '../admin-login.html';
+    window.location.href = 'admin-login.html';
 });
