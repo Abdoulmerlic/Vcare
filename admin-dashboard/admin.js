@@ -12,36 +12,8 @@ function loadAdminDashboard() {
         const storedUsers = JSON.parse(localStorage.getItem('users')) || { patients: [], doctors: [], admins: [] };
         storedUsers.patients.forEach(user => {
             const row = document.createElement('tr');
-            row.innerHTML = `<td>${user.username}</td><td>Patient</td>`;
+            row.innerHTML = `<td>${user.username}</td><td>${user.role}</td>`;
             usersTable.appendChild(row);
-        });
-        storedUsers.doctors.forEach(user => {
-            const row = document.createElement('tr');
-            row.innerHTML = `<td>${user.username}</td><td>Doctor</td>`;
-            usersTable.appendChild(row);
-        });
-    }
-
-    // Load doctors
-    const doctorsTable = document.getElementById('doctors-list');
-    if (doctorsTable) {
-        doctorsTable.innerHTML = ''; // Clear previous content
-        const storedUsers = JSON.parse(localStorage.getItem('users')) || { patients: [], doctors: [], admins: [] };
-        storedUsers.doctors.forEach(doctor => {
-            const row = document.createElement('tr');
-            row.innerHTML = `<td>${doctor.username}</td><td>Doctor</td>`;
-            doctorsTable.appendChild(row);
-        });
-    }
-
-    // Load appointments
-    const appointmentsTable = document.getElementById('appointments-list');
-    if (appointmentsTable) {
-        appointmentsTable.innerHTML = ''; // Clear previous content
-        appointments.forEach(app => {
-            const row = document.createElement('tr');
-            row.innerHTML = `<td>${app.patient}</td><td>${app.doctor}</td><td>${app.date}</td><td>${app.time}</td><td>${app.status}</td>`;
-            appointmentsTable.appendChild(row);
         });
     }
 
@@ -49,11 +21,6 @@ function loadAdminDashboard() {
     const reportsDiv = document.getElementById('reports-list');
     if (reportsDiv) {
         reportsDiv.innerHTML = ''; // Clear previous content
-        // Mock reports data
-        const reports = [
-            { title: "Monthly Report", date: "2023-11-01" },
-            { title: "Weekly Summary", date: "2023-11-07" }
-        ];
         reports.forEach(report => {
             const reportDiv = document.createElement('div');
             reportDiv.className = 'report-card';
