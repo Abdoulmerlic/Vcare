@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="css/patient-dashboard.css">
+    <link rel="stylesheet" href="css/book-appointment.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="patient-profile">
+            <img src="/img/patient1.png" alt="Patient">
+            <h3>Patient</h3>
+            <p id="patientEmail"></p>
+        </div>
+        <a href="index.html">Dashboard</a>
+        <a href="my-appointments.html">My Appointments</a>
+        <a href="book-appointment.html" class="active">Book Appointment</a>
+        <a href="medical-history.html">Medical History</a>
+        <a href="prescriptions.html">Prescriptions</a>
+        <a href="chat-support.html">Chat Support</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>BOOK APPOINTMENT</h1>
+            <a href="#" class="logout">Logout</a>
+        </div>
+
+        <!-- Booking Section -->
+        <div class="content-section">
+            <div class="search-section">
+                <input type="text" placeholder="Search doctor by name or specialty">
+                <select>
+                    <option value="">All Departments</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="dermatology">Dermatology</option>
+                    <option value="neurology">Neurology</option>
+                </select>
+                <button class="btn-search">Search</button>
+            </div>
+
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <img src="/img/doctor1.png" alt="Doctor">
+                    <h3>Dr. Ibrahim Sani</h3>
+                    <p class="speciality">Cardiology</p>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="availability">Available Today</p>
+                    <button class="btn-book">Book Appointment</button>
+                </div>
+                <div class="doctor-card">
+                    <img src="/img/doctor2.png" alt="Doctor">
+                    <h3>Dr. Bashir Yusuf</h3>
+                    <p class="speciality">Dermatology</p>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <p class="availability">Next Available: Tomorrow</p>
+                    <button class="btn-book">Book Appointment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser && currentUser.email) {
+                document.getElementById('patientEmail').textContent = currentUser.email;
+            }
+        });
+    </script>
+</body>
+</html> 
