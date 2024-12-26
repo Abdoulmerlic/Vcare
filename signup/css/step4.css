@@ -135,8 +135,14 @@ form select:focus {
     align-items: center;
     gap: 10px; 
     font-size: 16px;
+<<<<<<< HEAD
     line-height: 1.5;
     width: 400px;
 
     
 }
+=======
+    line-height: 1;
+    width: 400px;
+}
+>>>>>>> 5320269f1be46a386f07dc8b17a13dd35565ab6e
