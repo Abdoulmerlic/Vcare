@@ -5,25 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="css/admin-dashboard.css">
-    
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="users.html">Users</a>
-        <a href="doctors.html">Doctors</a>
-        <a href="appointments.html">Appointments</a>
-        <a href="reports.html">Reports</a>
-        <a href="settings.html">Settings</a>
+        <div class="admin-profile">
+            <img src="/img/Admin.png" alt="Admin">
+            <h3>Admin</h3>
+        </div>
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="doctors.html">Doctor</a>
+        <a href="patients.html">Patient</a>
+        <a href="appointments.html">Appointment</a>
     </nav>
 
-    <!-- Dashboard Content -->
-    <section id="dashboard">
-        <h2>Welcome to the Admin Dashboard</h2>
-        <p>Manage users, doctors, appointments, and view reports.</p>
-    </section>
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>ADMIN MANAGEMENT</h1>
+            <a href="#" class="logout">Logout</a>
+        </div>
 
-    <script src="../js/main.js"></script>
+        <!-- Stats Cards -->
+        <div class="stats-container">
+            <div class="stats-card">
+                <div class="stats-info">
+                    <h3>3</h3>
+                    <p>Total Doctor</p>
+                    <small>Approval Required: 2</small>
+                </div>
+                <div class="stats-icon">👨‍⚕️</div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-info">
+                    <h3>3</h3>
+                    <p>Total Patient</p>
+                    <small>Wants to Admit: 2</small>
+                </div>
+                <div class="stats-icon">👤</div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-info">
+                    <h3>5</h3>
+                    <p>Total Appointment</p>
+                    <small>Approve Appointments: 1</small>
+                </div>
+                <div class="stats-icon">📅</div>
+            </div>
+        </div>
+
+        <!-- Tables Section -->
+        <div class="tables-section">
+            <!-- Recent Doctors -->
+            <div class="table-container">
+                <h2>Recent Doctors</h2>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Mobile</th>
+                        <th>Status</th>
+                    </tr>
+                    <!-- Table content will be dynamically added -->
+                </table>
+            </div>
+
+            <!-- Recent Patients -->
+            <div class="table-container">
+                <h2>Recent Patient</h2>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Symptoms</th>
+                        <th>Mobile</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                    </tr>
+                    <!-- Table content will be dynamically added -->
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html> 
