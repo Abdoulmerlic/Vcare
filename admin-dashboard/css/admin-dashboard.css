@@ -164,3 +164,334 @@ th {
     background-color: #4CAF50;
     color: white;
 }
+
+/* Content Section Styles */
+.content-section {
+    padding: 20px;
+}
+
+.table-header {
+    margin-bottom: 20px;
+}
+
+.table-header h2 {
+    color: #333;
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Table Styles Update */
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #2196F3;
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Doctor Image Styles */
+.doctor-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Button Styles */
+.btn-update, .btn-delete {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background: none;
+}
+
+.btn-update {
+    color: #2196F3;
+}
+
+.btn-delete {
+    color: #f44336;
+}
+
+.btn-update:hover, .btn-delete:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Table */
+@media screen and (max-width: 1024px) {
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    table {
+        min-width: 800px;
+    }
+}
+
+/* Patient Image Styles */
+.patient-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* View History Button */
+.btn-view {
+    padding: 6px 12px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-view:hover {
+    background-color: #1976D2;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Action Buttons Container */
+td .btn-update,
+td .btn-delete {
+    margin: 0 5px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+    .table-container {
+        overflow-x: auto;
+    }
+    
+    table {
+        min-width: 1000px;
+    }
+}
+
+/* User Image Styles */
+.user-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Role and Status Badges */
+.role, .status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.role.patient {
+    background-color: #2196F3;
+    color: white;
+}
+
+.role.doctor {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status.inactive {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Table Cell Alignment */
+td {
+    vertical-align: middle;
+}
+
+/* Action Buttons */
+.btn-update, .btn-delete {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background: none;
+    margin: 0 5px;
+}
+
+.btn-update {
+    color: #2196F3;
+}
+
+.btn-delete {
+    color: #f44336;
+}
+
+.btn-update:hover, .btn-delete:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Appointment Status Styles */
+.status.pending {
+    background-color: #ff9800;
+    color: white;
+}
+
+.status.approved {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status.rejected {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Action Buttons for Appointments */
+.btn-approve {
+    color: #4CAF50;
+}
+
+.btn-reject {
+    color: #f44336;
+}
+
+/* Reports Styles */
+.reports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.report-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+    height: 300px;
+    margin: 20px 0;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.btn-download {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Settings Styles */
+.settings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.settings-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn-save {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-save:hover {
+    background-color: #1976D2;
+}

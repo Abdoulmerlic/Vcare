@@ -4,31 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointments Management</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
+        <div class="admin-profile">
+            <img src="/img/Admin.png" alt="Admin">
+            <h3>Admin</h3>
+        </div>
         <a href="index.html">Dashboard</a>
-        <a href="users.html">Users</a>
-        <a href="doctors.html">Doctors</a>
-        <a href="appointments.html" class="active">Appointments</a>
+        <a href="doctors.html">Doctor</a>
+        <a href="patients.html">Patient</a>
+        <a href="appointments.html" class="active">Appointment</a>
         <a href="reports.html">Reports</a>
         <a href="settings.html">Settings</a>
     </nav>
 
-    <!-- Appointments Management Content -->
-    <section id="appointments">
-        <h2>Manage Appointments</h2>
-        <table id="appointments-list">
-            <!-- Appointment records will be dynamically inserted here -->
-        </table>
-    </section>
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>ADMIN MANAGEMENT</h1>
+            <a href="#" class="logout">Logout</a>
+        </div>
 
-    <script src="../js/main.js"></script>
-    <script>
-        // Load appointments for the admin
-        document.addEventListener('DOMContentLoaded', loadAdminDashboard);
-    </script>
+        <!-- Appointments Table Section -->
+        <div class="content-section">
+            <div class="table-header">
+                <h2>Appointments</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Doctor Name</th>
+                            <th>Department</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aisha Muhammad</td>
+                            <td>Dr. Ibrahim Sani</td>
+                            <td>Cardiology</td>
+                            <td>2024-03-20</td>
+                            <td>10:00 AM</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>
+                                <button class="btn-approve">✓</button>
+                                <button class="btn-reject">✕</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fatima Usman</td>
+                            <td>Dr. Abdulmalik Saidu</td>
+                            <td>Dermatology</td>
+                            <td>2024-03-21</td>
+                            <td>2:30 PM</td>
+                            <td><span class="status approved">Approved</span></td>
+                            <td>
+                                <button class="btn-view">👁️</button>
+                                <button class="btn-delete">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html> 

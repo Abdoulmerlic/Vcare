@@ -4,25 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/admin-dashboard.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
+        <div class="admin-profile">
+            <img src="/img/Admin.png" alt="Admin">
+            <h3>Admin</h3>
+        </div>
         <a href="index.html">Dashboard</a>
-        <a href="users.html">Users</a>
-        <a href="doctors.html">Doctors</a>
-        <a href="appointments.html">Appointments</a>
+        <a href="doctors.html">Doctor</a>
+        <a href="patients.html">Patient</a>
+        <a href="appointments.html">Appointment</a>
         <a href="reports.html">Reports</a>
         <a href="settings.html" class="active">Settings</a>
     </nav>
 
-    <!-- Settings Content -->
-    <section id="settings">
-        <h2>Settings</h2>
-        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    </section>
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>ADMIN MANAGEMENT</h1>
+            <a href="#" class="logout">Logout</a>
+        </div>
 
-    <script src="../js/main.js"></script>
+        <!-- Settings Section -->
+        <div class="content-section">
+            <div class="settings-container">
+                <!-- Profile Settings -->
+                <div class="settings-card">
+                    <h3>Profile Settings</h3>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Profile Picture</label>
+                            <input type="file" accept="image/*">
+                        </div>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" value="Admin">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" value="admin@example.com">
+                        </div>
+                        <button type="submit" class="btn-save">Save Changes</button>
+                    </form>
+                </div>
+
+                <!-- Security Settings -->
+                <div class="settings-card">
+                    <h3>Security Settings</h3>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password">
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password">
+                        </div>
+                        <button type="submit" class="btn-save">Update Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html> 
