@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 2: Health Information</title>
+    <link rel="stylesheet" href="css/step2.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h1>VCare</h1>
+        <h2>Patient Registration</h2>
+        <p>Complete your profile to enjoy Healthcare services</p>
+        <div class="progress-bar">
+            <div class="step">1</div>
+            <div class="step active">2</div>
+            <div class="step">3</div>
+            <div class="step">4</div>
+        </div>
+        <div class="progress-labels">
+            <span>Personal Information</span>
+            <span>Health Information</span>
+            <span>Medical History</span>
+            <span>Consent and Verification</span>
+        </div>
+        <form id="step2Form">
+            <h3>Health Information</h3>
+            <div class="form-group">
+                <input type="text" placeholder="Blood Group" name="bloodGroup" required>
+                <select name="genotype" required>
+                    <option value="" disabled selected>Genotype</option>
+                    <option value="AA">AA</option>
+                    <option value="AS">AS</option>
+                    <option value="SS">SS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Known Allergies" name="allergies">
+                <input type="text" placeholder="Pre-existing Conditions" name="conditions">
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Current Medication" name="medication">
+            </div>
+            <div class="button-group">
+                <button type="button" class="next-btn" onclick="prevStep('./step1.html')">← Previous</button>
+                <button type="button" class="next-btn" onclick="nextStep('./step3.html', 'step2')">Next ➔</button>
+            </div>
+        </form>
+    </div>
+    <script src="js/form.js"></script>
+</body>
+</html> 

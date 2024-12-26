@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 4: Consent and Verification</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/step4.css">
+</head>
+<body>
+    <div class="signup-container">
+        <h1>VCare</h1>
+        <h2>Patient Registration</h2>
+        <p>Complete your profile to enjoy Healthcare services</p>
+        <div class="progress-bar">
+            <div class="step">1</div>
+            <div class="step">2</div>
+            <div class="step">3</div>
+            <div class="step active">4</div>
+        </div>
+        <div class="progress-labels">
+            <span>Personal Information</span>
+            <span>Health Information</span>
+            <span>Medical History</span>
+            <span>Consent and Verification</span>
+        </div>
+        <form id="step4Form">
+            <h3>Emergency Contact</h3>
+            <div class="form-group">
+                <input type="text" placeholder="Contact Name" name="contactName" required>
+                <select name="relationship" required>
+                    <option value="" disabled selected>Relationship</option>
+                    <option value="Parent">Parent</option>
+                    <option value="Sibling">Sibling</option>
+                    <option value="Friend">Friend</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Phone Number" name="contactPhone" required>
+            </div>
+            <div class="form-group vertical-checkboxes">
+                <label><input type="checkbox" name="terms" required> Terms & Conditions</label>
+                <label><input type="checkbox" name="consent" required> Consent for Telemedicine</label>
+            </div>
+            <div class="button-group">
+                <button type="button" class="next-btn" onclick="prevStep('./step3.html')">← Previous</button>
+                <button type="button" class="next-btn" onclick="nextStep('./step5.html', 'step4')">Next ➔</button>
+            </div>
+        </form>
+    </div>
+    <script src="js/form.js"></script>
+</body>
+</html> 
