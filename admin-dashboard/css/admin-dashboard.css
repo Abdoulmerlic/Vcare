@@ -12,8 +12,9 @@ nav {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 20px;
+    padding-left: 10px;
 }
 
 nav a {
@@ -21,12 +22,18 @@ nav a {
     text-decoration: none;
     padding: 15px 20px;
     width: 100%;
-    text-align: center;
+    text-align: left;
     transition: background 0.3s;
+    border-radius: 5px;
 }
 
 nav a:hover {
     background-color: #0056b3;
+}
+
+nav a.active {
+    background-color: #0056b3;
+    font-weight: bold;
 }
 
 .dashboard-container {
