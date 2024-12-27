@@ -4,29 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Appointments</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/patient-dashboard.css">
+    <link rel="stylesheet" href="css/appointments.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
+        <div class="patient-profile">
+            <img src="/img/patient1.png" alt="Patient">
+            <h3>Patient</h3>
+            <p id="patientEmail"></p>
+        </div>
         <a href="index.html">Dashboard</a>
+        <a href="my-appointments.html" class="active">My Appointments</a>
+        <a href="book-appointment.html">Book Appointment</a>
+        <a href="medical-history.html">Medical History</a>
         <a href="prescriptions.html">Prescriptions</a>
         <a href="chat-support.html">Chat Support</a>
         <a href="settings.html">Settings</a>
     </nav>
 
-    <!-- Appointments Content -->
-    <section id="appointments">
-        <h2>My Appointments</h2>
-        <div id="appointments-list">
-            <!-- Appointment cards will be dynamically inserted here -->
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>MY APPOINTMENTS</h1>
+            <a href="#" class="logout">Logout</a>
         </div>
-    </section>
 
-    <script src="../js/main.js"></script>
+        <!-- Appointments Section -->
+        <div class="content-section">
+            <!-- Filters -->
+            <div class="filters">
+                <select class="filter-select">
+                    <option value="all">All Appointments</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+                <input type="date" class="date-filter">
+            </div>
+
+            <!-- Appointments Grid -->
+            <div class="appointments-grid">
+                <!-- Upcoming Appointment Card -->
+                <div class="appointment-card upcoming">
+                    <div class="appointment-header">
+                        <span class="status">Upcoming</span>
+                        <span class="date">March 20, 2024</span>
+                    </div>
+                    <div class="doctor-info">
+                        <img src="/img/doctor1.png" alt="Doctor">
+                        <div>
+                            <h3>Dr. Ibrahim Sani</h3>
+                            <p>Cardiology</p>
+                        </div>
+                    </div>
+                    <div class="appointment-details">
+                        <p><strong>Time:</strong> 10:00 AM</p>
+                        <p><strong>Location:</strong> Virtual Consultation</p>
+                    </div>
+                    <div class="appointment-actions">
+                        <button class="btn-reschedule">Reschedule</button>
+                        <button class="btn-cancel">Cancel</button>
+                    </div>
+                </div>
+
+                <!-- Completed Appointment Card -->
+                <div class="appointment-card completed">
+                    <div class="appointment-header">
+                        <span class="status">Completed</span>
+                        <span class="date">March 15, 2024</span>
+                    </div>
+                    <div class="doctor-info">
+                        <img src="/img/doctor2.png" alt="Doctor">
+                        <div>
+                            <h3>Dr. Bashir Yusuf</h3>
+                            <p>Dermatology</p>
+                        </div>
+                    </div>
+                    <div class="appointment-details">
+                        <p><strong>Time:</strong> 2:30 PM</p>
+                        <p><strong>Location:</strong> Virtual Consultation</p>
+                    </div>
+                    <div class="appointment-actions">
+                        <button class="btn-view">View Details</button>
+                        <button class="btn-book">Book Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Load appointments for the current user
-        document.addEventListener('DOMContentLoaded', loadPatientDashboard);
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser && currentUser.email) {
+                document.getElementById('patientEmail').textContent = currentUser.email;
+            }
+        });
     </script>
 </body>
 </html> 

@@ -19,13 +19,29 @@
                     <button class="active">Patient Login</button>
                     <button>Doctor</button>
                 </div>
-                <form>
-                    <input type="email" placeholder="Email address" required>
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <input type="email" id="email" placeholder="Email address" required>
                     <button type="submit">Login</button>
                 </form>
                 <p>By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
             </div>
         </div>
     </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            
+            // Store the user email in localStorage (optional)
+            localStorage.setItem('currentUser', JSON.stringify({
+                email: email,
+                role: 'patient'
+            }));
+
+            // Redirect to patient dashboard
+            window.location.href = 'patient-dashboard/index.html';
+        }
+    </script>
 </body>
 </html> 

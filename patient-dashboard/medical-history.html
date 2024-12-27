@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical History</title>
+    <link rel="stylesheet" href="css/patient-dashboard.css">
+    <link rel="stylesheet" href="css/medical-history.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="patient-profile">
+            <img src="/img/patient1.png" alt="Patient">
+            <h3>Patient</h3>
+            <p id="patientEmail"></p>
+        </div>
+        <a href="index.html">Dashboard</a>
+        <a href="my-appointments.html">My Appointments</a>
+        <a href="book-appointment.html">Book Appointment</a>
+        <a href="medical-history.html" class="active">Medical History</a>
+        <a href="prescriptions.html">Prescriptions</a>
+        <a href="chat-support.html">Chat Support</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>MEDICAL HISTORY</h1>
+            <a href="#" class="logout">Logout</a>
+        </div>
+
+        <!-- Medical History Timeline -->
+        <div class="medical-history">
+            <div class="timeline">
+                <div class="history-card">
+                    <div class="history-date">March 15, 2024</div>
+                    <h3 class="history-title">General Checkup</h3>
+                    <div class="history-details">
+                        <p><strong>Doctor:</strong> Dr. Ibrahim Sani</p>
+                        <p><strong>Department:</strong> Cardiology</p>
+                        <p><strong>Diagnosis:</strong> Routine checkup, all vitals normal</p>
+                        <p><strong>Notes:</strong> Patient reported mild chest pain, ECG normal</p>
+                    </div>
+                    <div class="attachments">
+                        <a href="#" class="attachment-link">📄 ECG Report</a>
+                        <a href="#" class="attachment-link">📄 Blood Work</a>
+                    </div>
+                </div>
+
+                <div class="history-card">
+                    <div class="history-date">March 10, 2024</div>
+                    <h3 class="history-title">Dermatology Consultation</h3>
+                    <div class="history-details">
+                        <p><strong>Doctor:</strong> Dr. Bashir Yusuf</p>
+                        <p><strong>Department:</strong> Dermatology</p>
+                        <p><strong>Diagnosis:</strong> Mild eczema</p>
+                        <p><strong>Treatment:</strong> Prescribed topical cream</p>
+                    </div>
+                    <div class="attachments">
+                        <a href="#" class="attachment-link">📄 Prescription</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser && currentUser.email) {
+                document.getElementById('patientEmail').textContent = currentUser.email;
+            }
+        });
+    </script>
+</body>
+</html> 
