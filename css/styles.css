@@ -197,7 +197,7 @@ footer {
 
 .footer-links {
     display: flex;
-    gap: 40px;
+    gap: 250px;
 }
 
 .footer-links div {
