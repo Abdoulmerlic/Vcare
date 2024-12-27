@@ -28,7 +28,7 @@ body, html {
     margin-bottom: 20px;
 }
 
-.form-group input {
+.form-group input, .form-group select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
@@ -36,7 +36,7 @@ body, html {
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.form-group input:focus {
+.form-group input:focus, .form-group select:focus {
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
     border-color: #007bff;
 }
@@ -55,4 +55,16 @@ body, html {
 
 .register-btn:hover {
     background: #0056b3;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.success {
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
 }
