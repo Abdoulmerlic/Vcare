@@ -3,31 +3,276 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Records</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Doctor Dashboard - Patient Records</title>
+    <link rel="stylesheet" href="/doctor-dashboard/css/doctor-dashboard.css">
+    <link rel="stylesheet" href="/doctor-dashboard/css/patient-records.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="appointments.html">Appointments</a>
-        <a href="earnings.html">Earnings</a>
-        <a href="settings.html">Settings</a>
-        <a href="chat-patient.html">Chat Patient</a>
-    </nav>
+    <div class="dashboard-container">
+        <div id="sidebarContainer"></div>
+        <main class="main-content">
+            <!-- Top Header -->
+            <div class="top-header">
+                <div class="header-title">
+                    <h1>Patient Records</h1>
+                    <p>View and manage patient information</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search patients...">
+                    </div>
+                    <button class="btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Add New Patient
+                    </button>
+                </div>
+            </div>
 
-    <!-- Patient Records Content -->
-    <section id="patient-records">
-        <h2>Patient Records</h2>
-        <table id="patient-records-list">
-            <!-- Patient records will be dynamically inserted here -->
-        </table>
-    </section>
+            <!-- Patient Stats -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">New Patients</span>
+                        <span class="stat-number">28</span>
+                        <span class="stat-trend positive">+15.6%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Active Cases</span>
+                        <span class="stat-number">56</span>
+                        <span class="stat-trend negative">-2.3%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Records</span>
+                        <span class="stat-number">892</span>
+                    </div>
+                </div>
+            </div>
 
-    <!-- <script src="../js/main.js"></script> -->
+            <!-- Patient List Section -->
+            <div class="patient-section">
+                <div class="section-header">
+                    <div class="filters">
+                        <button class="active">All Patients</button>
+                        <button>New</button>
+                        <button>Active</button>
+                        <button>Recovered</button>
+                    </div>
+                    <div class="view-options">
+                        <button class="active"><i class="fas fa-th-large"></i></button>
+                        <button><i class="fas fa-list"></i></button>
+                    </div>
+                </div>
+
+                <div class="patient-grid">
+                    <!-- Patient Card -->
+                    <div class="patient-card">
+                        <div class="patient-header">
+                            <img src="img/patient1.jpg" alt="Patient">
+                            <div class="status active">Active</div>
+                            <button class="more-options"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="patient-info">
+                            <h3>Sarah Johnson</h3>
+                            <p class="patient-details">
+                                <span><i class="fas fa-venus"></i> Female</span>
+                                <span>32 years</span>
+                            </p>
+                            <p class="diagnosis">Hypertension, Type 2 Diabetes</p>
+                        </div>
+                        <div class="patient-stats">
+                            <div class="stat">
+                                <span class="label">Blood Pressure</span>
+                                <span class="value">120/80</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Heart Rate</span>
+                                <span class="value">72 bpm</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Glucose</span>
+                                <span class="value">110 mg/dL</span>
+                            </div>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-outline">View History</button>
+                            <button class="btn-primary">Schedule</button>
+                        </div>
+                    </div>
+                    <!-- More patient cards... -->
+                    <div class="patient-card">
+                        <div class="patient-header">
+                            <img src="img/patient2.jpg" alt="Patient">
+                            <div class="status recovered">Recovered</div>
+                            <button class="more-options"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="patient-info">
+                            <h3>Michael Chen</h3>
+                            <p class="patient-details">
+                                <span><i class="fas fa-mars"></i> Male</span>
+                                <span>45 years</span>
+                            </p>
+                            <p class="diagnosis">Post-Surgery Recovery, Cardiac Rehabilitation</p>
+                        </div>
+                        <div class="patient-stats">
+                            <div class="stat">
+                                <span class="label">Blood Pressure</span>
+                                <span class="value">118/75</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Heart Rate</span>
+                                <span class="value">68 bpm</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Cholesterol</span>
+                                <span class="value">180 mg/dL</span>
+                            </div>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-outline">View History</button>
+                            <button class="btn-primary">Schedule</button>
+                        </div>
+                    </div>
+                    <div class="patient-card">
+                        <div class="patient-header">
+                            <img src="img/patient3.jpg" alt="Patient">
+                            <div class="status new">New</div>
+                            <button class="more-options"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="patient-info">
+                            <h3>Emily Rodriguez</h3>
+                            <p class="patient-details">
+                                <span><i class="fas fa-venus"></i> Female</span>
+                                <span>28 years</span>
+                            </p>
+                            <p class="diagnosis">Initial Consultation, Chest Pain</p>
+                        </div>
+                        <div class="patient-stats">
+                            <div class="stat">
+                                <span class="label">Blood Pressure</span>
+                                <span class="value">125/82</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Heart Rate</span>
+                                <span class="value">88 bpm</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Temperature</span>
+                                <span class="value">37.2°C</span>
+                            </div>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-outline">View History</button>
+                            <button class="btn-primary">Schedule</button>
+                        </div>
+                    </div>
+                    <div class="patient-card">
+                        <div class="patient-header">
+                            <img src="img/patient4.jpg" alt="Patient">
+                            <div class="status active">Active</div>
+                            <button class="more-options"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="patient-info">
+                            <h3>Robert Wilson</h3>
+                            <p class="patient-details">
+                                <span><i class="fas fa-mars"></i> Male</span>
+                                <span>58 years</span>
+                            </p>
+                            <p class="diagnosis">Coronary Artery Disease, Hypertension</p>
+                        </div>
+                        <div class="patient-stats">
+                            <div class="stat">
+                                <span class="label">Blood Pressure</span>
+                                <span class="value">142/88</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Heart Rate</span>
+                                <span class="value">76 bpm</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Glucose</span>
+                                <span class="value">105 mg/dL</span>
+                            </div>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-outline">View History</button>
+                            <button class="btn-primary">Schedule</button>
+                        </div>
+                    </div>
+                    <div class="patient-card">
+                        <div class="patient-header">
+                            <img src="img/patient5.jpg" alt="Patient">
+                            <div class="status critical">Critical</div>
+                            <button class="more-options"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="patient-info">
+                            <h3>Maria Santos</h3>
+                            <p class="patient-details">
+                                <span><i class="fas fa-venus"></i> Female</span>
+                                <span>62 years</span>
+                            </p>
+                            <p class="diagnosis">Acute Myocardial Infarction, Diabetes</p>
+                        </div>
+                        <div class="patient-stats">
+                            <div class="stat">
+                                <span class="label">Blood Pressure</span>
+                                <span class="value">160/95</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Heart Rate</span>
+                                <span class="value">92 bpm</span>
+                            </div>
+                            <div class="stat">
+                                <span class="label">Glucose</span>
+                                <span class="value">180 mg/dL</span>
+                            </div>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-outline">View History</button>
+                            <button class="btn-primary">Schedule</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                    <div class="pages">
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <span>...</span>
+                        <button>12</button>
+                    </div>
+                    <button class="next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/patient-records.js"></script>
     <script>
-        // Load patient records for the current doctor
-        document.addEventListener('DOMContentLoaded', loadDoctorDashboard);
+        fetch('components/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebarContainer').innerHTML = data;
+                initializeSidebar();
+            });
     </script>
 </body>
 </html> 

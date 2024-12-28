@@ -3,31 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Patient</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Doctor Dashboard - Chat Patient</title>
+    <link rel="stylesheet" href="/doctor-dashboard/css/doctor-dashboard.css">
+    <link rel="stylesheet" href="/doctor-dashboard/css/chat-patient.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="appointments.html">Appointments</a>
-        <a href="patient-records.html">Patient Records</a>
-        <a href="earnings.html">Earnings</a>
-        <a href="settings.html">Settings</a>
-    </nav>
+    <div class="dashboard-container">
+        <div id="sidebarContainer"></div>
+        <main class="main-content">
+            <div class="chat-container">
+                <!-- Left Sidebar - Patient List -->
+                <div class="patients-sidebar">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search patients...">
+                    </div>
 
-    <!-- Chat Patient Content -->
-    <section id="chat-patient">
-        <h2>Chat with a Patient</h2>
-        <div id="chat-window">
-            <!-- Chat messages will be dynamically inserted here -->
-        </div>
-        <input type="text" id="chat-input" placeholder="Type your message...">
-        <button onclick="sendMessage()">Send</button>
-        <input type="file" id="file-input">
-        <button onclick="sendFile()">Send File</button>
-    </section>
+                    <div class="chat-filters">
+                        <button class="active">All Chats</button>
+                        <button>Unread</button>
+                        <button>Archived</button>
+                    </div>
 
-    <script src="../js/chat.js"></script>
+                    <div class="patients-list">
+                        <div class="patient-chat active">
+                            <div class="patient-avatar">
+                                <img src="img/patient1.jpg" alt="Sarah Johnson">
+                                <span class="status-dot online"></span>
+                            </div>
+                            <div class="chat-preview">
+                                <div class="chat-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <span class="time">2m ago</span>
+                                </div>
+                                <p class="last-message">Thank you doctor, I'll follow your advice</p>
+                                <span class="unread-count">2</span>
+                            </div>
+                        </div>
+
+                        <div class="patient-chat">
+                            <div class="patient-avatar">
+                                <img src="img/patient2.jpg" alt="Michael Chen">
+                                <span class="status-dot offline"></span>
+                            </div>
+                            <div class="chat-preview">
+                                <div class="chat-info">
+                                    <h4>Michael Chen</h4>
+                                    <span class="time">1h ago</span>
+                                </div>
+                                <p class="last-message">When should I take the medication?</p>
+                            </div>
+                        </div>
+
+                        <!-- More patient chat items -->
+                    </div>
+                </div>
+
+                <!-- Main Chat Area -->
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <div class="chat-user-info">
+                            <img src="img/patient1.jpg" alt="Sarah Johnson">
+                            <div class="user-details">
+                                <h3>Sarah Johnson</h3>
+                                <span class="status">Online</span>
+                            </div>
+                        </div>
+                        <div class="chat-actions">
+                            <button class="btn-icon">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-video"></i>
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages">
+                        <div class="message-date">Today</div>
+                        
+                        <div class="message received">
+                            <img src="img/patient1.jpg" alt="Sarah Johnson">
+                            <div class="message-content">
+                                <p>Hello Doctor, I've been experiencing chest pain since yesterday.</p>
+                                <span class="time">10:30 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="message sent">
+                            <div class="message-content">
+                                <p>Hello Sarah, can you describe the pain? Is it sharp or dull?</p>
+                                <span class="time">10:32 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="message received">
+                            <img src="img/patient1.jpg" alt="Sarah Johnson">
+                            <div class="message-content">
+                                <p>It's a sharp pain, especially when I breathe deeply.</p>
+                                <span class="time">10:33 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="message sent">
+                            <div class="message-content">
+                                <p>I understand. Have you noticed any other symptoms? Shortness of breath or fever?</p>
+                                <span class="time">10:35 AM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <button class="btn-icon">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <input type="text" placeholder="Type your message...">
+                        <button class="btn-icon">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="btn-send">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar - Patient Info -->
+                <div class="patient-info-sidebar">
+                    <div class="patient-profile">
+                        <img src="img/patient1.jpg" alt="Sarah Johnson">
+                        <h3>Sarah Johnson</h3>
+                        <p class="patient-id">Patient ID: #12345</p>
+                        <div class="quick-actions">
+                            <button class="btn-outline">View Profile</button>
+                            <button class="btn-primary">Schedule Visit</button>
+                        </div>
+                    </div>
+
+                    <div class="patient-details">
+                        <h4>Patient Details</h4>
+                        <div class="details-list">
+                            <div class="detail-item">
+                                <span class="label">Age</span>
+                                <span class="value">32 years</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Blood Type</span>
+                                <span class="value">A+</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Weight</span>
+                                <span class="value">65 kg</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Height</span>
+                                <span class="value">168 cm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="attachments">
+                        <h4>Attachments</h4>
+                        <div class="attachment-list">
+                            <div class="attachment-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Medical Report.pdf</span>
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="attachment-item">
+                                <i class="fas fa-file-image"></i>
+                                <span>X-Ray Result.jpg</span>
+                                <i class="fas fa-download"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/chat-patient.js"></script>
+    <script>
+        fetch('components/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebarContainer').innerHTML = data;
+                initializeSidebar();
+            });
+    </script>
 </body>
 </html> 
