@@ -3,25 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/doctor-dashboard.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <title>Doctor Dashboard - Settings</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="appointments.html">Appointments</a>
-        <a href="patient-records.html">Patient Records</a>
-        <a href="earnings.html">Earnings</a>
-        <a href="chat-patient.html">Chat Patient</a>
-    </nav>
+    <div class="dashboard-container">
+        <div id="sidebarContainer"></div>
+        <main class="main-content">
+            <h1>Settings</h1>
+            <form id="settings-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="notifications">Notifications</label>
+                    <select id="notifications" name="notifications">
+                        <option value="enabled">Enabled</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
+                </div>
+                <button type="submit">Save Changes</button>
+            </form>
+        </main>
+    </div>
 
-    <!-- Settings Content -->
-    <section id="settings">
-        <h2>Settings</h2>
-        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    </section>
-
-    <script src="../js/main.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/settings.js"></script>
+    <script>
+        // Load sidebar
+        fetch('components/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebarContainer').innerHTML = data;
+                initializeSidebar();
+            });
+    </script>
 </body>
 </html> 

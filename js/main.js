@@ -125,8 +125,8 @@ function loadDoctorDashboard() {
         earningsDiv.innerHTML = ''; // Clear previous content
         // Mock earnings data
         const earnings = [
-            { month: "October", amount: "$2000" },
-            { month: "November", amount: "$2500" }
+            { month: "October", amount: "N2000" },
+            { month: "November", amount: "N2500" }
         ];
         earnings.forEach(earning => {
             const earningDiv = document.createElement('div');
@@ -143,6 +143,6 @@ if (window.location.pathname.includes('patient-dashboard.html')) {
 }
 
 // Call this function on page load for doctor dashboard
-if (window.location.pathname.includes('doctor-dashboard')) {
+if (window.location.pathname.includes('/doctor-dashboard/index.html')) {
     loadDoctorDashboard();
 } 

@@ -9,78 +9,87 @@
 
 =======
     <link rel="stylesheet" href="css/admin-dashboard.css">
+<<<<<<< HEAD
 >>>>>>> 5320269f1be46a386f07dc8b17a13dd35565ab6e
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+>>>>>>> master
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="admin-profile">
-            <img src="/img/Admin.png" alt="Admin">
-            <h3>Admin</h3>
-        </div>
-        <a href="index.html">Dashboard</a>
-        <a href="doctors.html">Doctor</a>
-        <a href="patients.html">Patient</a>
-        <a href="appointments.html" class="active">Appointment</a>
-        <a href="reports.html">Reports</a>
-        <a href="settings.html">Settings</a>
-    </nav>
-
-    <!-- Main Content -->
     <div class="dashboard-container">
-        <!-- Header -->
-        <div class="header">
-            <h1>ADMIN MANAGEMENT</h1>
-            <a href="#" class="logout">Logout</a>
-        </div>
-
-        <!-- Appointments Table Section -->
-        <div class="content-section">
-            <div class="table-header">
-                <h2>Appointments</h2>
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="/img/logo.png" alt="VCare" class="logo">
+                <button class="toggle-btn" id="toggleSidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                <a href="doctors.html" class="menu-item">
+                    <i class="fas fa-user-md"></i>
+                    <span class="menu-text">Doctors</span>
+                </a>
+                <a href="patients.html" class="menu-item">
+                    <i class="fas fa-user-injured"></i>
+                    <span class="menu-text">Patients</span>
+                </a>
+                <a href="appointments.html" class="menu-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span class="menu-text">Appointments</span>
+                </a>
+                <a href="reports.html" class="menu-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="menu-text">Reports</span>
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span class="menu-text">Settings</span>
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="../login.html" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="menu-text">Logout</span>
+                </a>
+            </div>
+        </nav>
+    
+        <main class="main-content">
+            <h1>Appointments Management</h1>
             <div class="table-container">
+                <h2>Appointments List</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Patient Name</th>
                             <th>Doctor Name</th>
-                            <th>Department</th>
                             <th>Date</th>
                             <th>Time</th>
                             <th>Status</th>
-                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Aisha Muhammad</td>
-                            <td>Dr. Ibrahim Sani</td>
-                            <td>Cardiology</td>
-                            <td>2024-03-20</td>
-                            <td>10:00 AM</td>
-                            <td><span class="status pending">Pending</span></td>
-                            <td>
-                                <button class="btn-approve">✓</button>
-                                <button class="btn-reject">✕</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Fatima Usman</td>
-                            <td>Dr. Abdulmalik Saidu</td>
-                            <td>Dermatology</td>
-                            <td>2024-03-21</td>
-                            <td>2:30 PM</td>
-                            <td><span class="status approved">Approved</span></td>
-                            <td>
-                                <button class="btn-view">👁️</button>
-                                <button class="btn-delete">🗑️</button>
-                            </td>
-                        </tr>
+                        <!-- Add appointment entries here -->
                     </tbody>
                 </table>
             </div>
-        </div>
+        </main>
     </div>
+
+    <script>
+        // Initialize sidebar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleSidebar');
+            toggleBtn.addEventListener('click', function() {
+                document.getElementById('sidebar').classList.toggle('collapsed');
+            });
+        });
+    </script>
 </body>
 </html> 

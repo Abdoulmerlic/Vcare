@@ -3,76 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
     <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome -->
+    <title>Admin Settings</title>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="admin-profile">
-            <img src="/img/Admin.png" alt="Admin">
-            <h3>Admin</h3>
-        </div>
-        <a href="index.html">Dashboard</a>
-        <a href="doctors.html">Doctor</a>
-        <a href="patients.html">Patient</a>
-        <a href="appointments.html">Appointment</a>
-        <a href="reports.html">Reports</a>
-        <a href="settings.html" class="active">Settings</a>
-    </nav>
-
-    <!-- Main Content -->
     <div class="dashboard-container">
-        <!-- Header -->
-        <div class="header">
-            <h1>ADMIN MANAGEMENT</h1>
-            <a href="#" class="logout">Logout</a>
-        </div>
-
-        <!-- Settings Section -->
-        <div class="content-section">
-            <div class="settings-container">
-                <!-- Profile Settings -->
-                <div class="settings-card">
-                    <h3>Profile Settings</h3>
-                    <form class="settings-form">
-                        <div class="form-group">
-                            <label>Profile Picture</label>
-                            <input type="file" accept="image/*">
-                        </div>
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" value="Admin">
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" value="admin@example.com">
-                        </div>
-                        <button type="submit" class="btn-save">Save Changes</button>
-                    </form>
-                </div>
-
-                <!-- Security Settings -->
-                <div class="settings-card">
-                    <h3>Security Settings</h3>
-                    <form class="settings-form">
-                        <div class="form-group">
-                            <label>Current Password</label>
-                            <input type="password">
-                        </div>
-                        <div class="form-group">
-                            <label>New Password</label>
-                            <input type="password">
-                        </div>
-                        <div class="form-group">
-                            <label>Confirm Password</label>
-                            <input type="password">
-                        </div>
-                        <button type="submit" class="btn-save">Update Password</button>
-                    </form>
-                </div>
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="/img/logo.png" alt="VCare" class="logo">
+                <button class="toggle-btn" id="toggleSidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                <a href="doctors.html" class="menu-item">
+                    <i class="fas fa-user-md"></i>
+                    <span class="menu-text">Doctors</span>
+                </a>
+                <a href="patients.html" class="menu-item">
+                    <i class="fas fa-user-injured"></i>
+                    <span class="menu-text">Patients</span>
+                </a>
+                <a href="appointments.html" class="menu-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span class="menu-text">Appointments</span>
+                </a>
+                <a href="reports.html" class="menu-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="menu-text">Reports</span>
+                </a>
+                <a href="settings.html" class="menu-item active">
+                    <i class="fas fa-cog"></i>
+                    <span class="menu-text">Settings</span>
+                </a>
+            </div>
+            <div class="sidebar-footer">
+                <a href="../login.html" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="menu-text">Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Admin Settings</h1>
+            <form id="settingsForm">
+                <h2>Basic Application Settings</h2>
+                <div class="form-group">
+                    <label for="appName">Application Name:</label>
+                    <input type="text" id="appName" name="appName" placeholder="Enter application name" required>
+                </div>
+                <div class="form-group">
+                    <label for="appEmail">Support Email:</label>
+                    <input type="email" id="appEmail" name="appEmail" placeholder="Enter support email" required>
+                </div>
+                <div class="form-group">
+                    <label for="appTheme">Theme:</label>
+                    <select id="appTheme" name="appTheme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <button type="submit">Save Settings</button>
+            </form>
         </div>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('settingsForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Settings saved successfully!');
+        });
+
+        document.getElementById('toggleSidebar').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        });
+    </script>
 </body>
-</html> 
+</html>

@@ -8,41 +8,85 @@
     <link rel="stylesheet" href="css/appointments.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
+    <!-- Include the sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="toggle-btn">☰</div>
+        </div>
+        
         <div class="patient-profile">
-            <img src="/img/patient1.png" alt="Patient">
-            <h3>Patient</h3>
+            <div class="profile-picture">
+                <img id="profileImage" src="/img/default-avatar.png" alt="Patient">
+                <div class="edit-overlay">
+                    <label for="profileUpload">
+                        <span class="edit-icon">📷</span>
+                    </label>
+                    <input type="file" id="profileUpload" accept="image/*" style="display: none;">
+                </div>
+            </div>
+            <h3 id="patientName">Patient Name</h3>
             <p id="patientEmail"></p>
         </div>
-        <a href="index.html">Dashboard</a>
-        <a href="my-appointments.html" class="active">My Appointments</a>
-        <a href="book-appointment.html">Book Appointment</a>
-        <a href="medical-history.html">Medical History</a>
-        <a href="prescriptions.html">Prescriptions</a>
-        <a href="chat-support.html">Chat Support</a>
-        <a href="settings.html">Settings</a>
+
+        <div class="nav-links">
+            <a href="index.html">
+                <span class="icon">🏠</span>
+                <span class="link-text">Dashboard</span>
+            </a>
+            <a href="my-appointments.html" class="active">
+                <span class="icon">📅</span>
+                <span class="link-text">My Appointments</span>
+            </a>
+            <a href="book-appointment.html">
+                <span class="icon">📋</span>
+                <span class="link-text">Book Appointment</span>
+            </a>
+            <a href="medical-history.html">
+                <span class="icon">📚</span>
+                <span class="link-text">Medical History</span>
+            </a>
+            <a href="prescriptions.html">
+                <span class="icon">💊</span>
+                <span class="link-text">Prescriptions</span>
+            </a>
+            <a href="chat-support.html">
+                <span class="icon">💬</span>
+                <span class="link-text">Chat Support</span>
+            </a>
+            <a href="settings.html">
+                <span class="icon">⚙️</span>
+                <span class="link-text">Settings</span>
+            </a>
+        </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="dashboard-container">
         <!-- Header -->
         <div class="header">
             <h1>MY APPOINTMENTS</h1>
-            <a href="#" class="logout">Logout</a>
+            <div class="header-actions">
+                <button class="btn-new-appointment">+ New Appointment</button>
+                <a href="#" class="logout">Logout</a>
+            </div>
         </div>
 
         <!-- Appointments Section -->
         <div class="content-section">
             <!-- Filters -->
             <div class="filters">
-                <select class="filter-select">
-                    <option value="all">All Appointments</option>
-                    <option value="upcoming">Upcoming</option>
-                    <option value="completed">Completed</option>
-                    <option value="cancelled">Cancelled</option>
-                </select>
-                <input type="date" class="date-filter">
+                <div class="search-box">
+                    <span class="icon">🔍</span>
+                    <input type="text" placeholder="Search appointments...">
+                </div>
+                <div class="filter-group">
+                    <select class="filter-select">
+                        <option value="all">All Appointments</option>
+                        <option value="upcoming">Upcoming</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                    <input type="date" class="date-filter">
+                </div>
             </div>
 
             <!-- Appointments Grid -->
@@ -61,12 +105,24 @@
                         </div>
                     </div>
                     <div class="appointment-details">
-                        <p><strong>Time:</strong> 10:00 AM</p>
-                        <p><strong>Location:</strong> Virtual Consultation</p>
+                        <div class="detail-item">
+                            <span class="icon">🕒</span>
+                            <p>10:00 AM</p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">📍</span>
+                            <p>Virtual Consultation</p>
+                        </div>
                     </div>
                     <div class="appointment-actions">
-                        <button class="btn-reschedule">Reschedule</button>
-                        <button class="btn-cancel">Cancel</button>
+                        <button class="btn-reschedule">
+                            <span class="icon">📅</span>
+                            Reschedule
+                        </button>
+                        <button class="btn-cancel">
+                            <span class="icon">❌</span>
+                            Cancel
+                        </button>
                     </div>
                 </div>
 
@@ -84,25 +140,31 @@
                         </div>
                     </div>
                     <div class="appointment-details">
-                        <p><strong>Time:</strong> 2:30 PM</p>
-                        <p><strong>Location:</strong> Virtual Consultation</p>
+                        <div class="detail-item">
+                            <span class="icon">🕒</span>
+                            <p>2:30 PM</p>
+                        </div>
+                        <div class="detail-item">
+                            <span class="icon">📍</span>
+                            <p>Virtual Consultation</p>
+                        </div>
                     </div>
                     <div class="appointment-actions">
-                        <button class="btn-view">View Details</button>
-                        <button class="btn-book">Book Again</button>
+                        <button class="btn-view">
+                            <span class="icon">👁️</span>
+                            View Details
+                        </button>
+                        <button class="btn-book">
+                            <span class="icon">📋</span>
+                            Book Again
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            if (currentUser && currentUser.email) {
-                document.getElementById('patientEmail').textContent = currentUser.email;
-            }
-        });
-    </script>
+    <script src="js/profile.js"></script>
+    <script src="js/nav.js"></script>
 </body>
 </html> 

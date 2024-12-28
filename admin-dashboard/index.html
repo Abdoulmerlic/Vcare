@@ -5,89 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="admin-profile">
-            <img src="/img/Admin.png" alt="Admin">
-            <h3>Admin</h3>
-        </div>
-        <a href="index.html" class="active">Dashboard</a>
-        <a href="doctors.html">Doctor</a>
-        <a href="patients.html">Patient</a>
-        <a href="appointments.html">Appointment</a>
-        <a href="reports.html">Reports</a>
-        <a href="settings.html">Settings</a>
-    </nav>
-
-    <!-- Main Content -->
     <div class="dashboard-container">
-        <!-- Header -->
-        <div class="header">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="/img/logo.png" alt="VCare" class="logo">
+                <button class="toggle-btn" id="toggleSidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                <a href="doctors.html" class="menu-item">
+                    <i class="fas fa-user-md"></i>
+                    <span class="menu-text">Doctors</span>
+                </a>
+                <a href="patients.html" class="menu-item">
+                    <i class="fas fa-user-injured"></i>
+                    <span class="menu-text">Patients</span>
+                </a>
+                <a href="appointments.html" class="menu-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span class="menu-text">Appointments</span>
+                </a>
+                <a href="reports.html" class="menu-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="menu-text">Reports</span>
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span class="menu-text">Settings</span>
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="../login.html" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="menu-text">Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <main class="main-content">
             <h1>ADMIN MANAGEMENT</h1>
-            <a href="#" class="logout">Logout</a>
-        </div>
-
-        <!-- Stats Cards -->
-        <div class="stats-container">
-            <div class="stats-card">
-                <div class="stats-info">
-                    <h3>3</h3>
-                    <p>Total Doctor</p>
-                    <small>Approval Required: 2</small>
+            <div class="stats-container">
+                <div class="stats-card">
+                    <div class="stats-info">
+                        <h3>3</h3>
+                        <p>Total Doctor</p>
+                        <small>Approval Required: 2</small>
+                    </div>
+                    <div class="stats-icon">👨‍⚕️</div>
                 </div>
-                <div class="stats-icon">👨‍⚕️</div>
-            </div>
-            <div class="stats-card">
-                <div class="stats-info">
-                    <h3>3</h3>
-                    <p>Total Patient</p>
-                    <small>Wants to Admit: 2</small>
+                <div class="stats-card">
+                    <div class="stats-info">
+                        <h3>3</h3>
+                        <p>Total Patient</p>
+                        <small>Wants to Admit: 2</small>
+                    </div>
+                    <div class="stats-icon">👤</div>
                 </div>
-                <div class="stats-icon">👤</div>
-            </div>
-            <div class="stats-card">
-                <div class="stats-info">
-                    <h3>5</h3>
-                    <p>Total Appointment</p>
-                    <small>Approve Appointments: 1</small>
+                <div class="stats-card">
+                    <div class="stats-info">
+                        <h3>5</h3>
+                        <p>Total Appointment</p>
+                        <small>Approve Appointments: 1</small>
+                    </div>
+                    <div class="stats-icon">📅</div>
                 </div>
-                <div class="stats-icon">📅</div>
-            </div>
-        </div>
-
-        <!-- Tables Section -->
-        <div class="tables-section">
-            <!-- Recent Doctors -->
-            <div class="table-container">
-                <h2>Recent Doctors</h2>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Department</th>
-                        <th>Mobile</th>
-                        <th>Status</th>
-                    </tr>
-                    <!-- Table content will be dynamically added -->
-                </table>
             </div>
 
-            <!-- Recent Patients -->
-            <div class="table-container">
-                <h2>Recent Patient</h2>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Symptoms</th>
-                        <th>Mobile</th>
-                        <th>Address</th>
-                        <th>Status</th>
-                    </tr>
-                    <!-- Table content will be dynamically added -->
-                </table>
+            <!-- Tables Section -->
+            <div class="tables-section">
+                <div class="table-container">
+                    <h2>Recent Doctors</h2>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Mobile</th>
+                            <th>Status</th>
+                        </tr>
+                        <!-- Table content will be dynamically added -->
+                    </table>
+                </div>
+
+                <div class="table-container">
+                    <h2>Recent Patients</h2>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Symptoms</th>
+                            <th>Mobile</th>
+                            <th>Address</th>
+                            <th>Status</th>
+                        </tr>
+                        <!-- Table content will be dynamically added -->
+                    </table>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
+
+    <script>
+        // Initialize sidebar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleSidebar');
+            toggleBtn.addEventListener('click', function() {
+                document.getElementById('sidebar').classList.toggle('collapsed');
+            });
+        });
+    </script>
 </body>
 </html> 

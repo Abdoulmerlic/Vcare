@@ -3,66 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reports</title>
+    <title>Reports Management</title>
     <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="admin-profile">
-            <img src="/img/Admin.png" alt="Admin">
-            <h3>Admin</h3>
-        </div>
-        <a href="index.html">Dashboard</a>
-        <a href="doctors.html">Doctor</a>
-        <a href="patients.html">Patient</a>
-        <a href="appointments.html">Appointment</a>
-        <a href="reports.html" class="active">Reports</a>
-        <a href="settings.html">Settings</a>
-    </nav>
-
-    <!-- Main Content -->
     <div class="dashboard-container">
-        <!-- Header -->
-        <div class="header">
-            <h1>ADMIN MANAGEMENT</h1>
-            <a href="#" class="logout">Logout</a>
-        </div>
-
-        <!-- Reports Section -->
-        <div class="content-section">
-            <div class="reports-grid">
-                <!-- Revenue Report -->
-                <div class="report-card">
-                    <h3>Revenue Report</h3>
-                    <div class="chart-container">
-                        <!-- Add chart here -->
-                        <div class="placeholder-chart">Revenue Chart</div>
-                    </div>
-                    <button class="btn-download">Download PDF</button>
-                </div>
-
-                <!-- Appointments Report -->
-                <div class="report-card">
-                    <h3>Appointments Analytics</h3>
-                    <div class="chart-container">
-                        <!-- Add chart here -->
-                        <div class="placeholder-chart">Appointments Chart</div>
-                    </div>
-                    <button class="btn-download">Download PDF</button>
-                </div>
-
-                <!-- User Statistics -->
-                <div class="report-card">
-                    <h3>User Statistics</h3>
-                    <div class="chart-container">
-                        <!-- Add chart here -->
-                        <div class="placeholder-chart">Users Chart</div>
-                    </div>
-                    <button class="btn-download">Download PDF</button>
-                </div>
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="/img/logo.png" alt="VCare" class="logo">
+                <button class="toggle-btn" id="toggleSidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-        </div>
+
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                <a href="doctors.html" class="menu-item">
+                    <i class="fas fa-user-md"></i>
+                    <span class="menu-text">Doctors</span>
+                </a>
+                <a href="patients.html" class="menu-item">
+                    <i class="fas fa-user-injured"></i>
+                    <span class="menu-text">Patients</span>
+                </a>
+                <a href="appointments.html" class="menu-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span class="menu-text">Appointments</span>
+                </a>
+                <a href="reports.html" class="menu-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="menu-text">Reports</span>
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span class="menu-text">Settings</span>
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="../login.html" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="menu-text">Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <h1>Reports Management</h1>
+            <div class="table-container">
+                <h2>Reports List</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Report Type</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add report entries here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
     </div>
+
+    <script>
+        // Initialize sidebar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleSidebar');
+            toggleBtn.addEventListener('click', function() {
+                document.getElementById('sidebar').classList.toggle('collapsed');
+            });
+        });
+    </script>
 </body>
 </html> 

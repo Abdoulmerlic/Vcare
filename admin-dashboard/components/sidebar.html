@@ -1,0 +1,55 @@
+<nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <img src="/img/logo.png" alt="VCare" class="logo">
+        <button class="toggle-btn" id="toggleSidebar">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+
+    <div class="sidebar-menu">
+        <a href="index.html" class="menu-item">
+            <i class="fas fa-home"></i>
+            <span class="menu-text">Dashboard</span>
+        </a>
+        <a href="doctors.html" class="menu-item">
+            <i class="fas fa-user-md"></i>
+            <span class="menu-text">Doctors</span>
+        </a>
+        <a href="patients.html" class="menu-item">
+            <i class="fas fa-user-injured"></i>
+            <span class="menu-text">Patients</span>
+        </a>
+        <a href="appointments.html" class="menu-item">
+            <i class="fas fa-calendar-check"></i>
+            <span class="menu-text">Appointments</span>
+        </a>
+        <a href="reports.html" class="menu-item">
+            <i class="fas fa-file-alt"></i>
+            <span class="menu-text">Reports</span>
+        </a>
+        <a href="settings.html" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span class="menu-text">Settings</span>
+        </a>
+    </div>
+
+    <div class="sidebar-footer">
+        <a href="../login.html" class="menu-item">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="menu-text">Logout</span>
+        </a>
+    </div>
+</div>
+
+<div id="mainContent" class="main-content">
+    <!-- Main content goes here -->
+</div>
+
+<script>
+    document.getElementById('sidebarToggle').addEventListener('click', function() {
+        var sidebar = document.getElementById('sidebar');
+        var mainContent = document.getElementById('mainContent');
+        sidebar.classList.toggle('collapsed');
+        mainContent.classList.toggle('expanded');
+    });
+</script>

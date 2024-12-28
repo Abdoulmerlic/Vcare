@@ -3,31 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Earnings</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Doctor Dashboard - Earnings</title>
+    <link rel="stylesheet" href="/doctor-dashboard/css/doctor-dashboard.css">
+    <link rel="stylesheet" href="/doctor-dashboard/css/earnings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="appointments.html">Appointments</a>
-        <a href="patient-records.html">Patient Records</a>
-        <a href="settings.html">Settings</a>
-        <a href="chat-patient.html">Chat Patient</a>
-    </nav>
+    <div class="dashboard-container">
+        <div id="sidebarContainer"></div>
+        <main class="main-content">
+            <!-- Top Header -->
+            <div class="top-header">
+                <div class="header-title">
+                    <h1>Earnings Overview</h1>
+                    <p>Monitor your financial performance</p>
+                </div>
+                <div class="header-actions">
+                    <div class="date-range-picker">
+                        <i class="far fa-calendar"></i>
+                        <span>Last 30 Days</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <button class="btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download Report
+                    </button>
+                </div>
+            </div>
 
-    <!-- Earnings Content -->
-    <section id="earnings">
-        <h2>Earnings Overview</h2>
-        <div id="earnings-list">
-            <!-- Earnings details will be dynamically inserted here -->
-        </div>
-    </section>
+            <!-- Stats Cards -->
+            <div class="stats-container">
+                <div class="stat-card total-earnings">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <span class="trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            12.5%
+                        </span>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Earnings</span>
+                        <span class="stat-value">₦24,560,000</span>
+                        <span class="stat-period">This Month</span>
+                    </div>
+                </div>
+                <div class="stat-card appointments">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <span class="trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            8.2%
+                        </span>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Total Appointments</span>
+                        <span class="stat-value">182</span>
+                        <span class="stat-period">This Month</span>
+                    </div>
+                </div>
+                <div class="stat-card avg-earning">
+                    <div class="stat-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="trend negative">
+                            <i class="fas fa-arrow-down"></i>
+                            3.1%
+                        </span>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Average Earning</span>
+                        <span class="stat-value">₦135,000</span>
+                        <span class="stat-period">Per Appointment</span>
+                    </div>
+                </div>
+            </div>
 
-    <script src="../js/main.js"></script>
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="earnings-chart">
+                    <div class="chart-header">
+                        <h2>Earnings Overview</h2>
+                        <div class="chart-filters">
+                            <button class="active">Weekly</button>
+                            <button>Monthly</button>
+                            <button>Yearly</button>
+                        </div>
+                    </div>
+                    <canvas id="earningsChart"></canvas>
+                </div>
+                <div class="appointment-stats">
+                    <h2>Appointment Statistics</h2>
+                    <canvas id="appointmentChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="transactions-section">
+                <div class="section-header">
+                    <h2>Recent Transactions</h2>
+                    <button class="btn-text">View All</button>
+                </div>
+                <div class="transactions-list">
+                    <div class="transaction-item">
+                        <div class="patient-info">
+                            <img src="img/patient1.jpg" alt="Patient">
+                            <div class="details">
+                                <h4>Sarah Johnson</h4>
+                                <span>Cardiology Consultation</span>
+                            </div>
+                        </div>
+                        <div class="transaction-details">
+                            <span class="amount">+₦150,000</span>
+                            <span class="date">Today, 2:30 PM</span>
+                        </div>
+                    </div>
+                    <!-- More transaction items -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/earnings.js"></script>
     <script>
-        // Load earnings for the current doctor
-        document.addEventListener('DOMContentLoaded', loadDoctorDashboard);
+        fetch('components/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebarContainer').innerHTML = data;
+                initializeSidebar();
+            });
     </script>
 </body>
 </html> 

@@ -1,93 +1,177 @@
-/* Search and Filter Section */
-.search-section {
-    display: flex;
-    gap: 15px;
+/* Content Section */
+.content-section {
     padding: 20px;
-    background: white;
-    border-radius: 10px;
-    margin: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.search-section input {
+/* Search Section */
+.search-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.search-box {
     flex: 2;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    background: #f5f5f5;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.search-box .icon {
+    margin-right: 10px;
+    color: #666;
+}
+
+.search-box input {
+    border: none;
+    background: none;
+    width: 100%;
+    padding: 5px;
     font-size: 14px;
 }
 
-.search-section select {
+.filter-group {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    gap: 10px;
+}
+
+.department-filter,
+.consultation-filter {
     flex: 1;
     padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 14px;
-}
-
-.btn-search {
-    padding: 12px 25px;
-    background: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
 }
 
 /* Doctors Grid */
 .doctors-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    padding: 20px;
+    margin-top: 20px;
 }
 
 .doctor-card {
     background: white;
     border-radius: 10px;
     padding: 20px;
-    text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
 }
 
-.doctor-card:hover {
-    transform: translateY(-5px);
-}
-
-.doctor-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+.doctor-header {
+    position: relative;
     margin-bottom: 15px;
 }
 
-.doctor-card h3 {
-    margin: 0;
-    color: #333;
-    font-size: 18px;
+.doctor-header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f5f5f5;
 }
 
-.doctor-card p {
+.availability {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.availability.online {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.doctor-info {
+    margin-bottom: 20px;
+}
+
+.doctor-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.specialty {
     color: #666;
+    font-size: 14px;
     margin: 5px 0;
 }
 
 .rating {
-    color: #ffc107;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin: 10px 0;
 }
 
-.doctor-card .speciality {
-    color: #2196F3;
-    font-weight: 500;
+.reviews {
+    color: #666;
+    font-size: 14px;
+}
+
+.experience,
+.consultation-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    font-size: 14px;
     margin: 5px 0;
 }
 
-.doctor-card .availability {
-    color: #4CAF50;
-    margin: 10px 0;
+/* Time Slots */
+.time-slots {
+    margin: 20px 0;
+}
+
+.time-slots h4 {
+    margin: 0 0 10px;
+    color: #333;
+    font-size: 16px;
+}
+
+.slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+}
+
+.slot {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #f5f5f5;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slot:hover {
+    background: #e3f2fd;
+    border-color: #2196F3;
+    color: #1976d2;
+}
+
+.slot.selected {
+    background: #2196F3;
+    border-color: #1976d2;
+    color: white;
 }
 
 .btn-book {
@@ -96,11 +180,28 @@
     background: #2196F3;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 14px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 .btn-book:hover {
-    background: #1976D2;
+    background: #1976d2;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .search-section {
+        flex-direction: column;
+    }
+
+    .search-box,
+    .filter-group {
+        width: 100%;
+    }
+
+    .doctors-grid {
+        grid-template-columns: 1fr;
+    }
 } 

@@ -3,30 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Doctor Dashboard - Appointments</title>
+    <link rel="stylesheet" href="/doctor-dashboard/css/doctor-dashboard.css">
+    <link rel="stylesheet" href="/doctor-dashboard/css/appointments.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="patient-records.html">Patient Records</a>
-        <a href="earnings.html">Earnings</a>
-        <a href="settings.html">Settings</a>
-        <a href="chat-patient.html">Chat Patient</a>
-    </nav>
+    <div class="dashboard-container">
+        <div id="sidebarContainer"></div>
+        <main class="main-content">
+            <!-- Top Header -->
+            <div class="top-header">
+                <div class="header-title">
+                    <h1>Appointments</h1>
+                    <p>Manage your appointments and schedule</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn-outline">
+                        <i class="fas fa-filter"></i>
+                        Filter
+                    </button>
+                    <button class="btn-primary">
+                        <i class="fas fa-plus"></i>
+                        New Appointment
+                    </button>
+                </div>
+            </div>
 
-    <!-- Appointments Content -->
-    <section id="appointments">
-        <h2>Today's Appointments</h2>
-        <div id="appointments-list">
-            <!-- Appointment cards will be dynamically inserted here -->
-        </div>
-    </section>
+            <!-- Calendar Section -->
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <div class="month-selector">
+                        <button class="btn-icon"><i class="fas fa-chevron-left"></i></button>
+                        <h2>July 2022</h2>
+                        <button class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="view-options">
+                        <button class="active">Day</button>
+                        <button>Week</button>
+                        <button>Month</button>
+                    </div>
+                </div>
+                <div class="calendar-grid">
+                    <!-- Time slots -->
+                    <div class="time-slots">
+                        <div class="time-slot">09:00 AM</div>
+                        <div class="time-slot">10:00 AM</div>
+                        <div class="time-slot">11:00 AM</div>
+                        <!-- Add more time slots -->
+                    </div>
+                    <!-- Appointments -->
+                    <div class="appointments-grid">
+                        <div class="appointment-card confirmed">
+                            <div class="appointment-time">09:00 - 10:00</div>
+                            <h3>Medical Checkup</h3>
+                            <div class="patient-info">
+                                <img src="img/patient1.jpg" alt="Patient">
+                                <span>Sarah Johnson</span>
+                            </div>
+                            <div class="appointment-type">
+                                <i class="fas fa-video"></i>
+                                Video Call
+                            </div>
+                        </div>
+                        <!-- More appointment cards -->
+                    </div>
+                </div>
+            </div>
 
-    <script src="../js/main.js"></script>
+            <!-- Upcoming Appointments -->
+            <div class="upcoming-appointments">
+                <h3>Upcoming Appointments</h3>
+                <div class="appointment-list">
+                    <!-- Appointment items -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/sidebar.js"></script>
+    <script src="js/appointments.js"></script>
     <script>
+<<<<<<< HEAD
         document.addEventListener('DOMContentLoaded', loadDoctorDashboard);
+=======
+        fetch('components/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebarContainer').innerHTML = data;
+                initializeSidebar();
+            });
+>>>>>>> master
     </script>
 </body>
 </html> 
