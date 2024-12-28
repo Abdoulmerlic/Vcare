@@ -4,29 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Support</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/patient-dashboard.css">
+    <link rel="stylesheet" href="css/chat.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
+        <div class="patient-profile">
+            <img src="/img/patient1.png" alt="Patient">
+            <h3>Patient</h3>
+            <p id="patientEmail"></p>
+        </div>
         <a href="index.html">Dashboard</a>
         <a href="my-appointments.html">My Appointments</a>
+        <a href="book-appointment.html">Book Appointment</a>
+        <a href="medical-history.html">Medical History</a>
         <a href="prescriptions.html">Prescriptions</a>
+        <a href="chat-support.html" class="active">Chat Support</a>
         <a href="settings.html">Settings</a>
     </nav>
 
-    <!-- Chat Support Content -->
-    <section id="chat-support">
-        <h2>Chat with a Doctor</h2>
-        <div id="chat-window">
-            <!-- Chat messages will be dynamically inserted here -->
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>CHAT SUPPORT</h1>
+            <a href="#" class="logout">Logout</a>
         </div>
-        <input type="text" id="chat-input" placeholder="Type your message...">
-        <button onclick="sendMessage()">Send</button>
-        <input type="file" id="file-input">
-        <button onclick="sendFile()">Send File</button>
-    </section>
 
-    <script src="../js/chat.js"></script>
+        <!-- Chat Section -->
+        <div class="chat-container">
+            <!-- Doctors List -->
+            <div class="doctors-list">
+                <div class="search-box">
+                    <input type="text" placeholder="Search doctors...">
+                </div>
+                <div class="doctors">
+                    <div class="doctor-chat active">
+                        <img src="/img/doctor1.png" alt="Doctor">
+                        <div class="doctor-info">
+                            <h4>Dr. Ibrahim Sani</h4>
+                            <p>Cardiology</p>
+                            <span class="status online"></span>
+                        </div>
+                    </div>
+                    <div class="doctor-chat">
+                        <img src="/img/doctor2.png" alt="Doctor">
+                        <div class="doctor-info">
+                            <h4>Dr. Bashir Yusuf</h4>
+                            <p>Dermatology</p>
+                            <span class="status offline"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="chat-area">
+                <div class="chat-header">
+                    <img src="/img/doctor1.png" alt="Doctor">
+                    <div class="chat-info">
+                        <h4>Dr. Ibrahim Sani</h4>
+                        <p>Online</p>
+                    </div>
+                </div>
+
+                <div class="chat-messages">
+                    <div class="message received">
+                        <img src="/img/doctor1.png" alt="Doctor">
+                        <div class="message-content">
+                            <p>Hello! How can I help you today?</p>
+                            <span class="time">10:00 AM</span>
+                        </div>
+                    </div>
+                    <div class="message sent">
+                        <div class="message-content">
+                            <p>Hi Doctor, I have some questions about my prescription.</p>
+                            <span class="time">10:02 AM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input">
+                    <input type="text" placeholder="Type your message...">
+                    <div class="input-actions">
+                        <button class="attach-btn">📎</button>
+                        <button class="send-btn">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser && currentUser.email) {
+                document.getElementById('patientEmail').textContent = currentUser.email;
+            }
+
+            // Chat functionality
+            const chatInput = document.querySelector('.chat-input input');
+            const sendBtn = document.querySelector('.send-btn');
+            const chatMessages = document.querySelector('.chat-messages');
+
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    const messageHTML = `
+                        <div class="message sent">
+                            <div class="message-content">
+                                <p>${message}</p>
+                                <span class="time">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                            </div>
+                        </div>
+                    `;
+                    chatMessages.insertAdjacentHTML('beforeend', messageHTML);
+                    chatInput.value = '';
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            }
+
+            sendBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

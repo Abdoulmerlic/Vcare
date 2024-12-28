@@ -4,24 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Dashboard</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/patient-dashboard.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav>
-        <a href="../index.html">Home</a>
+        <div class="chpatient-profile">
+            <img src="/img/" alt="Patient">
+            <h3>Patient</h3>
+            <p id="patientEmail"></p>
+        </div>
+        <a href="index.html" class="active">Dashboard</a>
         <a href="my-appointments.html">My Appointments</a>
+        <a href="book-appointment.html">Book Appointment</a>
+        <a href="medical-history.html">Medical History</a>
         <a href="prescriptions.html">Prescriptions</a>
         <a href="chat-support.html">Chat Support</a>
         <a href="settings.html">Settings</a>
     </nav>
 
-    <!-- Dashboard Content -->
-    <section id="dashboard">
-        <h2>Welcome to Your Dashboard</h2>
-        <p>Access your appointments, prescriptions, and chat with doctors.</p>
-    </section>
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>PATIENT DASHBOARD</h1>
+            <a href="#" class="logout">Logout</a>
+        </div>
 
-    <script src="../js/main.js"></script>
+        <!-- Stats Cards -->
+        <div class="stats-container">
+            <div class="stats-card">
+                <div class="stats-info">
+                    <h3>2</h3>
+                    <p>Upcoming Appointments</p>
+                    <small>Next: Dr. Ibrahim - Tomorrow</small>
+                </div>
+                <div class="stats-icon">📅</div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-info">
+                    <h3>3</h3>
+                    <p>Prescriptions</p>
+                    <small>Last Updated: Today</small>
+                </div>
+                <div class="stats-icon">💊</div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-info">
+                    <h3>5</h3>
+                    <p>Medical Records</p>
+                    <small>Last Visit: 3 days ago</small>
+                </div>
+                <div class="stats-icon">📋</div>
+            </div>
+        </div>
+
+        <!-- Recent Activity Section -->
+        <div class="tables-section">
+            <!-- Recent Appointments -->
+            <div class="table-container">
+                <h2>Recent Appointments</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Doctor</th>
+                            <th>Department</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dr. Ibrahim Sani</td>
+                            <td>Cardiology</td>
+                            <td>2024-03-20</td>
+                            <td>10:00 AM</td>
+                            <td><span class="status upcoming">Upcoming</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dr. Bashir Yusuf</td>
+                            <td>Dermatology</td>
+                            <td>2024-03-15</td>
+                            <td>2:30 PM</td>
+                            <td><span class="status completed">Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Recent Prescriptions -->
+            <div class="table-container">
+                <h2>Recent Prescriptions</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Medicine</th>
+                            <th>Dosage</th>
+                            <th>Duration</th>
+                            <th>Doctor</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Amoxicillin</td>
+                            <td>500mg</td>
+                            <td>7 days</td>
+                            <td>Dr. Ibrahim</td>
+                            <td>2024-03-15</td>
+                        </tr>
+                        <tr>
+                            <td>Paracetamol</td>
+                            <td>1000mg</td>
+                            <td>3 days</td>
+                            <td>Dr. Bashir</td>
+                            <td>2024-03-10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Display patient email from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser && currentUser.email) {
+                document.getElementById('patientEmail').textContent = currentUser.email;
+            }
+        });
+    </script>
 </body>
 </html> 
