@@ -1,10 +1,11 @@
 :root {
     --sidebar-width: 240px;
     --sidebar-collapsed-width: 70px;
-    --primary-color: #4475F2;
-    --text-color: #333;
-    --bg-color: #F4F7FA;
-    --sidebar-bg: #fff;
+    --primary-color: #1C64F2; /* Primary blue from branding */
+    --secondary-color: #009345; /* Secondary green from branding */
+    --text-color: #1E1E1E; /* Branding text color */
+    --bg-color: #fff; /* White background */
+    --sidebar-bg: #fff; /* Sidebar background matches white */
     --transition-speed: 0.3s;
 }
 
@@ -62,6 +63,7 @@ body {
 
 .menu-item i {
     margin-right: 10px;
+    color: var(--primary-color); /* Icon color matches primary branding */
 }
 
 .menu-text {
@@ -75,7 +77,8 @@ body {
 }
 
 .menu-item:hover {
-    background: #f0f0f0;
+    background: var(--primary-color); /* Highlight on hover using primary color */
+    color: #fff; /* White text on hover */
 }
 
 .sidebar-footer {
@@ -89,14 +92,19 @@ body {
 
 /* Main Content Styles */
 .main-content {
-    margin-left: var(--sidebar-width); /* Adjust based on sidebar width */
+    margin-left: var(--sidebar-width); /* Default margin */
     padding: 20px;
     flex: 1;
-    background-color: #fff;
+    background-color: var(--bg-color); /* White background */
+    transition: margin-left var(--transition-speed); /* Smooth transition */
+}
+
+.sidebar.collapsed + .main-content {
+    margin-left: var(--sidebar-collapsed-width); /* Adjust margin when sidebar is collapsed */
 }
 
 h1 {
-    color: #333;
+    color: var(--text-color); /* Use branding text color */
 }
 
 /* Stats Container */
@@ -107,7 +115,7 @@ h1 {
 }
 
 .stats-card {
-    background: #f5f5f5;
+    background: var(--secondary-color); /* Card background uses secondary color */
     border-radius: 10px;
     padding: 20px;
     flex: 1;
@@ -115,6 +123,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #fff; /* White text inside cards */
 }
 
 .stats-info {
@@ -139,6 +148,7 @@ h1 {
 
 .table-container h2 {
     margin-bottom: 10px;
+    color: var(--primary-color); /* Section headers use primary color */
 }
 
 table {
@@ -153,5 +163,84 @@ th, td {
 }
 
 th {
-    background-color: #f0f0f0;
+    background-color: var(--primary-color); /* Table header background uses primary color */
+    color: #fff; /* White text in table headers */
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Button Styles */
+button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Additional Form Styles */
+.remove-btn, .regenerate-btn, .export-btn {
+    background-color: var(--secondary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.remove-btn:hover, .regenerate-btn:hover, .export-btn:hover {
+    background-color: var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 10px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
 }
