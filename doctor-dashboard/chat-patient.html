@@ -134,7 +134,13 @@
                 <!-- Right Sidebar - Patient Info -->
                 <div class="patient-info-sidebar">
                     <div class="patient-profile">
-                        <img src="img/patient1.jpg" alt="Sarah Johnson">
+                        <div class="profile-picture" id="profilePicture">
+                            <input type="file" id="file-upload" accept="image/*" style="display: none;">
+                            <img src="img/default-avatar.png" alt="Sarah Johnson" id="profileImage">
+                            <div class="upload-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                        </div>
                         <h3>Sarah Johnson</h3>
                         <p class="patient-id">Patient ID: #12345</p>
                         <div class="quick-actions">
