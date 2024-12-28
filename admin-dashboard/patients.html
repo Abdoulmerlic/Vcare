@@ -5,110 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patients Management</title>
     <link rel="stylesheet" href="css/admin-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="admin-profile">
-            <img src="/img/Admin.png" alt="Admin">
-            <h3>Admin</h3>
-        </div>
-        <a href="index.html">Dashboard</a>
-        <a href="doctors.html">Doctor</a>
-        <a href="patients.html" class="active">Patient</a>
-        <a href="appointments.html">Appointment</a>
-        <a href="reports.html">Reports</a>
-        <a href="settings.html">Settings</a>
-    </nav>
-
-    <!-- Main Content -->
     <div class="dashboard-container">
-        <!-- Header -->
-        <div class="header">
-            <h1>ADMIN MANAGEMENT</h1>
-            <a href="#" class="logout">Logout</a>
-        </div>
-
-        <!-- Patients Table Section -->
-        <div class="content-section">
-            <div class="table-header">
-                <h2>Registered Patients</h2>
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="/img/logo.png" alt="VCare" class="logo">
+                <button class="toggle-btn" id="toggleSidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+
+            <div class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-home"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                <a href="doctors.html" class="menu-item">
+                    <i class="fas fa-user-md"></i>
+                    <span class="menu-text">Doctors</span>
+                </a>
+                <a href="patients.html" class="menu-item">
+                    <i class="fas fa-user-injured"></i>
+                    <span class="menu-text">Patients</span>
+                </a>
+                <a href="appointments.html" class="menu-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span class="menu-text">Appointments</span>
+                </a>
+                <a href="reports.html" class="menu-item">
+                    <i class="fas fa-file-alt"></i>
+                    <span class="menu-text">Reports</span>
+                </a>
+                <a href="settings.html" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span class="menu-text">Settings</span>
+                </a>
+            </div>
+
+            <div class="sidebar-footer">
+                <a href="../login.html" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="menu-text">Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <h1>Patients Management</h1>
             <div class="table-container">
+                <h2>Registered Patients</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Profile Picture</th>
-                            <th>Phone</th>
+                            <th>Mobile</th>
                             <th>Address</th>
                             <th>Gender</th>
-                            <th>Blood Group</th>
-                            <th>Medical History</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Aisha Muhammad</td>
-                            <td><img src="/img/patient1.png" alt="patient" class="patient-img"></td>
-                            <td>+2349012345678</td>
-                            <td>Katsina, Nigeria</td>
-                            <td>Female</td>
-                            <td>O+</td>
-                            <td>
-                                <button class="btn-view" onclick="viewHistory(1)">View History</button>
-                            </td>
-                            <td>
-                                <button class="btn-update">✏️</button>
-                                <button class="btn-delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ibrahim Sani</td>
-                            <td><img src="/img/patient2.png" alt="patient" class="patient-img"></td>
-                            <td>+2348123456789</td>
-                            <td>Katsina, Nigeria</td>
-                            <td>Male</td>
-                            <td>A+</td>
-                            <td>
-                                <button class="btn-view" onclick="viewHistory(2)">View History</button>
-                            </td>
-                            <td>
-                                <button class="btn-update">✏️</button>
-                                <button class="btn-delete">🗑️</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Fatima Usman</td>
-                            <td><img src="/img/patient3.png" alt="patient" class="patient-img"></td>
-                            <td>+2347098765432</td>
-                            <td>Katsina, Nigeria</td>
-                            <td>Female</td>
-                            <td>B+</td>
-                            <td>
-                                <button class="btn-view" onclick="viewHistory(3)">View History</button>
-                            </td>
-                            <td>
-                                <button class="btn-update">✏️</button>
-                                <button class="btn-delete">🗑️</button>
-                            </td>
-                        </tr>
+                        <!-- Add patient entries here -->
                     </tbody>
                 </table>
             </div>
-        </div>
+        </main>
     </div>
 
-    <!-- Modal for Medical History -->
-    <div id="historyModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Medical History</h2>
-            <div id="historyContent"></div>
-        </div>
-    </div>
-
-    <script src="js/patients.js"></script>
+    <script>
+        // Initialize sidebar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleSidebar');
+            toggleBtn.addEventListener('click', function() {
+                document.getElementById('sidebar').classList.toggle('collapsed');
+            });
+        });
+    </script>
 </body>
 </html> 
