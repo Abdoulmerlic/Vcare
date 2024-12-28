@@ -4,25 +4,188 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Dashboard</title>
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/doctor-dashboard.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="../index.html">Home</a>
-        <a href="appointments.html">Appointments</a>
-        <a href="patient-records.html">Patient Records</a>
-        <a href="earnings.html">Earnings</a>
-        <a href="settings.html">Settings</a>
-        <a href="chat-patient.html">Chat Patient</a>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo">
+            <span class="icon">💙</span>
+            <span class="text">Health</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" class="active">
+                <span class="icon">🏠</span>
+                <span class="link-text">Dashboard</span>
+            </a>
+            <a href="schedule.html">
+                <span class="icon">📅</span>
+                <span class="link-text">Schedule</span>
+            </a>
+            <a href="patients.html">
+                <span class="icon">👥</span>
+                <span class="link-text">Patients</span>
+            </a>
+            <a href="reports.html">
+                <span class="icon">📊</span>
+                <span class="link-text">Reports</span>
+            </a>
+            <a href="profile.html">
+                <span class="icon">👤</span>
+                <span class="link-text">Profile</span>
+            </a>
+        </div>
+
+        <div class="bottom-links">
+            <a href="settings.html">
+                <span class="icon">⚙️</span>
+                <span class="link-text">Settings</span>
+            </a>
+            <a href="#" class="logout">
+                <span class="icon">↪️</span>
+                <span class="link-text">Log Out</span>
+            </a>
+        </div>
     </nav>
 
-    <!-- Dashboard Content -->
-    <section id="dashboard">
-        <h2>Welcome to Your Dashboard</h2>
-        <p>Manage your appointments, patient records, and earnings.</p>
-    </section>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header>
+            <div class="search-bar">
+                <span class="icon">🔍</span>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="header-right">
+                <span class="date">Wed., July 27, 2022</span>
+                <button class="theme-toggle">🌙</button>
+                <button class="notifications">🔔</button>
+                <button class="messages">✉️</button>
+            </div>
+        </header>
 
-    <script src="../js/main.js"></script>
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+            <h1>Welcome Back, <span class="doctor-name">Dr. Olivia Worner</span>! 👋</h1>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-container">
+            <div class="stat-card patients">
+                <div class="stat-icon">❤️</div>
+                <div class="stat-info">
+                    <h3>Total Patients</h3>
+                    <div class="stat-number">120</div>
+                </div>
+            </div>
+            <div class="stat-card appointments">
+                <div class="stat-icon">📅</div>
+                <div class="stat-info">
+                    <h3>Appointments</h3>
+                    <div class="stat-number">324</div>
+                </div>
+            </div>
+            <div class="stat-card reports">
+                <div class="stat-icon">📄</div>
+                <div class="stat-info">
+                    <h3>Reports</h3>
+                    <div class="stat-number">88</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conferences Section -->
+        <div class="conferences-section">
+            <div class="section-header">
+                <h2>Online Conferences</h2>
+                <span class="more-options">⋮</span>
+            </div>
+            <p class="subtitle">8+ conferences not confirmed</p>
+
+            <div class="conference-cards">
+                <div class="conference-card">
+                    <h3>COVID-19 Series: The latest information on virus mutation</h3>
+                    <div class="conference-date">
+                        <span class="icon">📅</span>
+                        <span>Wed., July 27, 2022</span>
+                    </div>
+                    <div class="conference-time">
+                        <span class="icon">⏰</span>
+                        <span>01:00 - 03:00 PM (2 hrs.)</span>
+                    </div>
+                    <p class="conference-desc">Ever since Coronavirus first emerged, it has been mutating...</p>
+                    <div class="conference-actions">
+                        <button class="btn-details">Details</button>
+                        <button class="btn-join">Join</button>
+                    </div>
+                </div>
+
+                <div class="conference-card">
+                    <h3>Cardiology - State of the art and international perspective</h3>
+                    <div class="conference-date">
+                        <span class="icon">📅</span>
+                        <span>Fri., August 5, 2022</span>
+                    </div>
+                    <div class="conference-time">
+                        <span class="icon">⏰</span>
+                        <span>10:00 - 11:30 AM (1.5 hrs.)</span>
+                    </div>
+                    <p class="conference-desc">Cardiology is a rapidly moving field in which advances lead to paradigm...</p>
+                    <div class="conference-actions">
+                        <button class="btn-details">Details</button>
+                        <button class="btn-join">Join</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <!-- Doctor Profile -->
+            <div class="doctor-profile">
+                <img src="img/doctor-avatar.png" alt="Dr. Olivia Worner">
+                <div class="doctor-info">
+                    <h3>Dr. Olivia Worner</h3>
+                    <p>Cardiologist</p>
+                </div>
+                <button class="expand">▼</button>
+            </div>
+
+            <!-- Upcoming Appointments -->
+            <div class="upcoming-appointments">
+                <div class="section-header">
+                    <h2>Upcoming</h2>
+                    <button class="today-filter">Today ▼</button>
+                </div>
+
+                <div class="appointment-list">
+                    <div class="appointment-item">
+                        <div class="time">10:00 - 11:00 AM</div>
+                        <div class="appointment-details">
+                            <h4>Medical Checkup</h4>
+                            <p>Katrina Johnson</p>
+                        </div>
+                    </div>
+
+                    <div class="appointment-item">
+                        <div class="time">11:00 - 12:00 PM</div>
+                        <div class="appointment-details">
+                            <h4>Meeting</h4>
+                            <p>Cardiologists meeting</p>
+                        </div>
+                    </div>
+
+                    <div class="appointment-item">
+                        <div class="time">12:00 - 13:00 AM</div>
+                        <div class="appointment-details">
+                            <h4>Medical Checkup</h4>
+                            <p>Valeria Rock</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
 </body>
 </html> 
