@@ -15,7 +15,7 @@ document.getElementById('doctorLoginForm').addEventListener('submit', function (
 
     if (doctor) {
         alert('Login successful! Redirecting to the dashboard...');
-        window.location.href = '/';
+        window.location.href = '/doctor-dashboard/index.html';
     } else {
         alert('Invalid email or password. Please try again.');
     }
