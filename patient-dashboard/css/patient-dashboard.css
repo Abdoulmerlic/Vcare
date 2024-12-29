@@ -1,3 +1,15 @@
+:root {
+    --sidebar-width: 240px;
+    --sidebar-collapsed-width: 70px;
+    --primary-color: #1C64F2; /* Primary blue from branding */
+    --secondary-color: #009345; /* Secondary green from branding */
+    --text-color: #1E1E1E; /* Branding text color */
+    --bg-color: #fff; /* White background */
+    --sidebar-bg: #fff; /* Sidebar background matches white */
+    --header-color: #1C64F2; /* Header color */
+    --transition-speed: 0.3s;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -10,19 +22,19 @@ body, html {
 
 /* Navbar Styles */
 .sidebar {
-    background-color: #2196F3;
-    width: 250px;
+    background-color: var(--primary-color);
+    width: var(--sidebar-width);
     height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
-    transition: width 0.3s;
+    transition: width var(--transition-speed);
     overflow-y: auto;
     z-index: 1000;
 }
 
 .sidebar.collapsed {
-    width: 70px;
+    width: var(--sidebar-collapsed-width);
 }
 
 .sidebar-header {
@@ -152,8 +164,8 @@ body, html {
 
 /* Header Styles */
 .header {
-    background-color: #2196F3;
-    color: white;
+    background-color: var(--header-color);
+    color: white; /* Ensure text is readable */
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;

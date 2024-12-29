@@ -1,11 +1,12 @@
 /* Content Section */
 .content-section {
     padding: 20px;
+    background-color: var(--bg-color);
 }
 
 /* Search Section */
 .search-section {
-    background: white;
+    background: var(--bg-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -63,7 +64,7 @@
 }
 
 .doctor-card {
-    background: white;
+    background: var(--bg-color);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -72,6 +73,10 @@
 .doctor-header {
     position: relative;
     margin-bottom: 15px;
+    background-color: var(--header-color);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .doctor-header img {
