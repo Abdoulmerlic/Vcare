@@ -19,13 +19,9 @@ header {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    width:5px;
 }
 
-.logo span {
-    color: #007bff;
-}
 
 nav a {
     margin: 0 15px;
