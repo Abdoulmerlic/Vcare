@@ -1,22 +1,11 @@
-:root {
-    --sidebar-width: 240px;
-    --sidebar-collapsed-width: 70px;
-    --primary-color: #1C64F2; /* Primary blue from branding */
-    --secondary-color: #009345; /* Secondary green from branding */
-    --text-color: #1E1E1E; /* Branding text color */
-    --bg-color: #fff; /* White background */
-    --sidebar-bg: #fff; /* Sidebar background matches white */
-    --transition-speed: 0.3s;
-}
 /* Content Section */
 .content-section {
     padding: 20px;
-    background-color: var(--bg-color);
 }
 
 /* Filters */
 .filters {
-    background: var(--bg-color);
+    background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -71,7 +60,7 @@
 }
 
 .appointment-card {
-    background: var(--bg-color);
+    background: white;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -82,10 +71,6 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
-    background-color: var(--header-color);
-    color: white; /* Ensure text is readable */
-    padding: 10px;
-    border-radius: 5px;
 }
 
 .status {
@@ -96,8 +81,8 @@
 }
 
 .upcoming .status {
-    background: var(--secondary-color);
-    color: white;
+    background: #e3f2fd;
+    color: #1976d2;
 }
 
 .completed .status {

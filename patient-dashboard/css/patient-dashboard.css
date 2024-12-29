@@ -5,7 +5,7 @@
     --secondary-color: #009345; /* Secondary green from branding */
     --text-color: #1E1E1E; /* Branding text color */
     --bg-color: #fff; /* White background */
-    --sidebar-bg: #fff; /* Sidebar background matches white */
+    --sidebar-bg: #1C64F2; /* Sidebar background matches admin dashboard */
     --header-color: #1C64F2; /* Header color */
     --transition-speed: 0.3s;
 }
@@ -22,7 +22,7 @@ body, html {
 
 /* Navbar Styles */
 .sidebar {
-    background-color: var(--primary-color);
+    background-color: var(--sidebar-bg);
     width: var(--sidebar-width);
     height: 100vh;
     position: fixed;
