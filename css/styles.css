@@ -174,14 +174,14 @@ nav a {
 footer {
     background-color: #1a1a2e;
     color: #fff;
-    padding: 40px 20px;
+    padding: 20px;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: 0 auto;
 }
 
