@@ -16,8 +16,8 @@
             <div class="login-box">
                 <h2>Sign in to VCare</h2>
                 <div class="login-toggle">
-                    <button class="active">Patient Login</button>
-                    <button id="doctor">Doctor</button>
+                    <button class="">Patient Login</button>
+                    <button id="doctor" class="active">Doctor</button>
                 </div>
                 <form id="loginForm" onsubmit="handleLogin(event)">
                     <input type="email" id="email" placeholder="Email address" required>
@@ -29,26 +29,25 @@
     </div>
 
     <script>
-        // Function to handle login form submission
         function handleLogin(event) {
             event.preventDefault();
             const email = document.getElementById('email').value;
-
-            // Store the user email and role in localStorage (optional)
+            
+            // Store the user email in localStorage (optional)
             localStorage.setItem('currentUser', JSON.stringify({
                 email: email,
-                role: 'patient'
+                role: 'doctor'
             }));
 
-            // Redirect to the patient dashboard
-            window.location.href = 'patient-dashboard/index.html';
-        }
+            // Redirect to patient dashboard
+            window.location.href = 'doctor-dashboard/index.html';
 
-        // Add event listener to the doctor button to redirect to doctor login page
-        document.getElementById('doctor').addEventListener('click', function() {
-            // Redirect to the doctor login page
-            window.location.href = 'doctor-login.html';
-        });
+            // document.getElementById('doctor').addEventListener('click', function() {
+            //     // Navigate to the doctor page
+            //     window.location.href = 'doctors.html';
+            // });
+        }
     </script>
+  
 </body>
-</html>
+</html> 
