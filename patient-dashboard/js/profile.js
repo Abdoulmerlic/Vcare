@@ -60,4 +60,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('resize', handleResize);
     handleResize(); // Initial check
-}); 
+
+    // Logout functionality
+    const logoutButton = document.getElementById('logoutButton'); 
+
+    logoutButton.addEventListener('click', function() {
+      
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('profilePicture');
+
+      
+        window.location.href = '../index.html';
+    });
+});

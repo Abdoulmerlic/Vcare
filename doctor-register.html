@@ -44,6 +44,73 @@
         </form>
         <p id="successMessage" class="success"></p>
     </div>
-    <script src="/doctor-dashboard/js/doctor-register.js"></script>
-    </body>
+
+    <!-- Firebase Inline Script -->
+    <script type="module">
+        // Import Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBeMucMNu175h-E2WcqfE3hAna0q73nBNc",
+            authDomain: "visualcare-689e1.firebaseapp.com",
+            projectId: "visualcare-689e1",
+            storageBucket: "visualcare-689e1.appspot.com",
+            messagingSenderId: "474498396380",
+            appId: "1:474498396380:web:5f3b157349e06f30264419",
+            measurementId: "G-VSYDT6N9EW"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        const form = document.getElementById("doctorRegistrationForm");
+        const successMessage = document.getElementById("successMessage");
+        const errorMessage = document.getElementById("message");
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+     
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const specialization = document.getElementById("specialization").value;
+            const license = document.getElementById("license").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = "Passwords do not match!";
+                return;
+            }
+
+            try {
+           
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+
+                // Add doctor details to Firestore
+                await addDoc(collection(db, "doctors"), {
+                    name,
+                    email,
+                    phone,
+                    specialization,
+                    license,
+                    uid: user.uid,
+                    createdAt: new Date().toISOString()
+                });
+
+                // Show success message
+                successMessage.textContent = "Doctor registered successfully!";
+                form.reset();
+                errorMessage.textContent = "";
+            } catch (error) {
+                errorMessage.textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
 </html>

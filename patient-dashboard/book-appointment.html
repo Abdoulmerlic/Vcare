@@ -73,17 +73,17 @@
             <div class="search-section">
                 <div class="search-box">
                     <span class="icon">🔍</span>
-                    <input type="text" placeholder="Search doctors by name or specialty...">
+                    <input type="text" id="doctorSearch" placeholder="Search doctors by name or specialty...">
                 </div>
                 <div class="filter-group">
-                    <select class="department-filter">
+                    <select class="department-filter" id="departmentFilter">
                         <option value="">All Departments</option>
                         <option value="cardiology">Cardiology</option>
                         <option value="dermatology">Dermatology</option>
                         <option value="neurology">Neurology</option>
                         <option value="orthopedics">Orthopedics</option>
                     </select>
-                    <select class="consultation-filter">
+                    <select class="consultation-filter" id="consultationFilter">
                         <option value="">All Types</option>
                         <option value="virtual">Virtual Consultation</option>
                         <option value="in-person">In-Person Visit</option>
@@ -92,50 +92,69 @@
             </div>
 
             <!-- Doctors Grid -->
-            <div class="doctors-grid">
-                <!-- Doctor Card -->
-                <div class="doctor-card">
-                    <div class="doctor-header">
-                        <img src="/img/doctor1.png" alt="Doctor">
-                        <span class="availability online">Available Today</span>
-                    </div>
-                    <div class="doctor-info">
-                        <h3>Dr. Ibrahim Sani</h3>
-                        <p class="specialty">Cardiology</p>
-                        <div class="rating">
-                            <span class="stars">⭐⭐⭐⭐⭐</span>
-                            <span class="reviews">(150 reviews)</span>
-                        </div>
-                        <div class="experience">
-                            <span class="icon">👨‍⚕️</span>
-                            <span>15 years experience</span>
-                        </div>
-                        <div class="consultation-type">
-                            <span class="icon">💻</span>
-                            <span>Virtual & In-Person</span>
-                        </div>
-                    </div>
-                    <div class="time-slots">
-                        <h4>Available Slots</h4>
-                        <div class="slots">
-                            <button class="slot">09:00 AM</button>
-                            <button class="slot">10:30 AM</button>
-                            <button class="slot">02:00 PM</button>
-                            <button class="slot">03:30 PM</button>
-                        </div>
-                    </div>
-                    <button class="btn-book">Book Appointment</button>
-                </div>
-
-                <!-- More Doctor Cards -->
-                <div class="doctor-card">
-                    <!-- Similar structure for other doctors -->
-                </div>
+            <div class="doctors-grid" id="doctorsGrid">
+                <!-- Doctors will be loaded here dynamically -->
             </div>
         </div>
     </div>
 
+    <script type="module">
+        // Import Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+        import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBeMucMNu175h-E2WcqfE3hAna0q73nBNc",
+            authDomain: "visualcare-689e1.firebaseapp.com",
+            projectId: "visualcare-689e1",
+            storageBucket: "visualcare-689e1.firebasestorage.app",
+            messagingSenderId: "474498396380",
+            appId: "1:474498396380:web:5f3b157349e06f30264419",
+            measurementId: "G-VSYDT6N9EW"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Fetch doctors and display them
+        async function fetchDoctors() {
+            const doctorsCol = collection(db, "doctors");
+            const doctorsSnapshot = await getDocs(doctorsCol);
+            const doctors = doctorsSnapshot.docs.map(doc => doc.data());
+            const doctorsGrid = document.getElementById("doctorsGrid");
+
+            doctors.forEach(doctor => {
+                const doctorCard = `
+                    <div class="doctor-card">
+                        <h3>${doctor.name}</h3>
+                        <p>${doctor.specialty}</p>
+                        <button onclick="bookDoctor('${doctor.name}', '09:00 AM')">Book</button>
+                    </div>
+                `;
+                doctorsGrid.innerHTML += doctorCard;
+            });
+        }
+
+        // Book an appointment
+        async function bookDoctor(doctorName, timeSlot) {
+            const patientEmail = localStorage.getItem("patientEmail") || "anonymous@example.com";
+            await addDoc(collection(db, "appointments"), {
+                doctorName,
+                timeSlot,
+                patientEmail,
+                status: "Pending",
+                createdAt: new Date().toISOString()
+            });
+            alert(`Appointment booked with Dr. ${doctorName} at ${timeSlot}`);
+        }
+
+        // Fetch and display doctors on page load
+        fetchDoctors();
+    </script>
+
     <script src="js/profile.js"></script>
     <script src="js/nav.js"></script>
 </body>
-</html> 
+</html>
