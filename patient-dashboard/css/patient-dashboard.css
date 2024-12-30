@@ -138,6 +138,17 @@ body, html {
     font-size: 20px;
 }
 
+#logoutButton{
+    color: #fff;
+    background-color: #2196F3;
+    padding: 5px;
+    width: 100px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .patient-profile h3 {
     margin: 0;
     font-size: 18px;
