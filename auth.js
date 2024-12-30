@@ -1,4 +1,4 @@
-import { auth } from './firebase';
+import { auth } from './supabase';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const registerUser = async (email, password) => {
