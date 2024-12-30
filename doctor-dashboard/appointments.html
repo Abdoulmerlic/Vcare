@@ -84,12 +84,16 @@
     <script src="js/sidebar.js"></script>
     <script src="js/appointments.js"></script>
     <script>
+<<<<<<< HEAD
+        document.addEventListener('DOMContentLoaded', loadDoctorDashboard);
+=======
         fetch('components/sidebar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('sidebarContainer').innerHTML = data;
                 initializeSidebar();
             });
+>>>>>>> master
     </script>
 </body>
 </html> 
