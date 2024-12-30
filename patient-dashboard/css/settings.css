@@ -1,6 +1,7 @@
 /* Settings Container */
 .settings-container {
     padding: 20px;
+    background-color: var(--bg-color);
 }
 
 .settings-card {
@@ -12,8 +13,8 @@
 }
 
 .settings-card h2 {
+    color: var(--header-color);
     margin: 0 0 20px 0;
-    color: #333;
     font-size: 20px;
 }
 

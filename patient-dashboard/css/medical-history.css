@@ -1,6 +1,7 @@
 /* History Timeline */
 .medical-history {
     padding: 20px;
+    background-color: var(--bg-color);
 }
 
 .timeline {
@@ -47,7 +48,7 @@
 }
 
 .history-title {
-    color: #333;
+    color: var(--header-color);
     margin: 0 0 10px 0;
     font-size: 18px;
 }

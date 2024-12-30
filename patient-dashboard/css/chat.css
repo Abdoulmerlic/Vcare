@@ -2,7 +2,7 @@
 .chat-container {
     display: flex;
     height: calc(100vh - 80px);
-    background: white;
+    background: var(--bg-color);
     margin: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -90,8 +90,9 @@
 }
 
 .chat-header {
+    background-color: var(--header-color);
+    color: white; /* Ensure text is readable */
     padding: 15px;
-    background: #f8f9fa;
     border-bottom: 1px solid #eee;
     display: flex;
     align-items: center;
