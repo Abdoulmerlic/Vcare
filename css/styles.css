@@ -108,7 +108,8 @@ nav a {
 }
 
 .feature-card img {
-    width: 50px;
+    width: 200px;
+    height: 150px;
     margin-bottom: 10px;
 }
 
