@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VCare Chatbot</title>
+  <link rel="stylesheet" href="/css/chatbot.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <button class="back-button">←</button>
+      <h2>Chatbot</h2>
+    </div>
+    <div class="chat-window"></div>
+
+    <div class="file-upload-preview">
+      <!-- Preview will be shown here -->
+    </div>
+
+    <button class="history-button">
+      <i class="far fa-clock"></i>
+      History and Physical
+    </button>
+
+    <div class="chat-footer">
+      <form class="chat-form">
+        <div class="upload-container">
+          <input type="file" id="file-upload" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple>
+          <label for="file-upload" class="upload-button">
+            <i class="fas fa-paperclip"></i>
+          </label>
+        </div>
+        <input type="text" class="chat-input" placeholder="Type here...">
+        <div class="action-buttons">
+          <button type="button" class="action-button">
+            <i class="far fa-smile"></i>
+          </button>
+          <button type="submit" class="action-button send-button">
+            <i class="far fa-paper-plane"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="/js/chatbot.js"></script>
+</body>
+</html>
