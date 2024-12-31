@@ -97,3 +97,24 @@ form a {
     color: #007bff;
     text-decoration: none;
 } 
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .login-left {
+        display: none; /* Hide the "Welcome to VCare" section */
+    }
+
+    .login-right {
+        padding: 20px;
+    }
+
+    .login-box {
+        width: 100%;
+    }
+}
