@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vcare - Login</title>
     <link rel="stylesheet" href="css/login.css">
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <!-- Your custom JavaScript file -->
+    <script src="firebase-init.js"></script>
 </head>
 <body>
     <div class="login-container">
@@ -21,14 +27,10 @@
                 </div>
                 <form id="loginForm" onsubmit="handleLogin(event)">
                     <input type="email" id="email" placeholder="Email address" required>
-<<<<<<< HEAD
-                    <input type="password" id="password" placeholder="Enter Password" required>
-=======
                     <input type="password" id="password" placeholder="Password" required>
->>>>>>> 9d64e725ac493520b5e97c2d1e6e26dd41699195
                     <button type="submit">Login</button>
+                    <button type="signup"></button>
                 </form>
-                <a href="/signup.html" style="display: flex; justify-content: end; margin-top: 15px;">Sign up</a>
                 <p>By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
             </div>
         </div>
