@@ -21,6 +21,7 @@
                 </div>
                 <form id="loginForm" onsubmit="handleLogin(event)">
                     <input type="email" id="email" placeholder="Email address" required>
+                    <input type="password" id="password" placeholder="Password" required>
                     <button type="submit">Login</button>
                 </form>
                 <p>By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
@@ -30,18 +31,35 @@
 
     <script>
         // Function to handle login form submission
-        function handleLogin(event) {
+        async function handleLogin(event) {
             event.preventDefault();
             const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-            // Store the user email and role in localStorage (optional)
-            localStorage.setItem('currentUser', JSON.stringify({
-                email: email,
-                role: 'patient'
-            }));
+            // Simulated authentication (replace this with Firebase or your backend API call)
+            const users = [
+                { email: 'patient1@example.com', password: 'password123', role: 'patient' },
+                { email: 'doctor1@example.com', password: 'password456', role: 'doctor' }
+            ];
 
-            // Redirect to the patient dashboard
-            window.location.href = 'patient-dashboard/index.html';
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                // Store the user email and role in localStorage
+                localStorage.setItem('currentUser', JSON.stringify({
+                    email: user.email,
+                    role: user.role
+                }));
+
+                // Redirect based on the user role
+                if (user.role === 'patient') {
+                    window.location.href = 'patient-dashboard/index.html';
+                } else if (user.role === 'doctor') {
+                    window.location.href = 'doctor-dashboard/index.html';
+                }
+            } else {
+                alert('Invalid email or password.');
+            }
         }
 
         // Add event listener to the doctor button to redirect to doctor login page

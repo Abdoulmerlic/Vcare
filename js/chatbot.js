@@ -292,4 +292,3 @@ document.querySelector('.chat-form').addEventListener('submit', async (e) => {
         }
     }
 });
-  
